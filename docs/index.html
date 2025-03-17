@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="ar">
 
 <head>
     <meta charset="UTF-8">
@@ -7,14 +7,22 @@
     <title>Nawaqidhul Islam</title>
     <style>
         @font-face {
-            font-family: 'Kitab-Regular';
-            src: url('Kitab-Regular.woff2') format('woff2');
+            font-family: 'UthmanicHafs';
+            src: url('original-hafs.eot');
+            src: url('original-hafs.eot?#iefix') format('embedded-opentype'),
+                url('original-hafs.woff2') format('woff2'),
+                url('original-hafs.woff') format('woff'),
+                url('original-hafs.ttf') format('truetype'),
+                url('original-hafs.svg#UthmanicHafs') format('svg');
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: UthmanicHafs !important;
             text-align: center;
             padding: 20px;
+            margin-bottom: 50px;
+            /* Menambahkan jarak 50px di bawah halaman */
+
         }
 
         .arabic-container {
@@ -22,7 +30,6 @@
             text-align: right;
             font-size: 32px;
             display: inline-block;
-            font-family: 'Kitab-Regular', serif;
         }
 
         .arabic {
@@ -44,7 +51,7 @@
             padding: 5px;
             border-radius: 5px;
             position: absolute;
-            bottom: 70px;
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
             white-space: nowrap;
@@ -66,12 +73,203 @@
         .arabic:hover .tooltip {
             visibility: visible;
         }
+
+        /* Button biasa */
+        .toggle-button {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Floating button dengan posisi fixed */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: auto;
+            white-space: nowrap;
+        }
+
+        /* Hover effect untuk floating button */
+        .floating-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsif untuk tampilan mobile */
+        @media (max-width: 768px) {
+            .floating-button {
+                font-size: 14px;
+                /* Menyesuaikan ukuran font */
+                padding: 8px 16px;
+                /* Menyesuaikan padding */
+                right: 10px;
+                /* Mengatur jarak kanan */
+                bottom: 10px;
+                /* Mengatur jarak bawah */
+            }
+
+            body {
+                line-height: 1.8;
+                /* Lebih lebar di perangkat kecil */
+            }
+        }
+
+        /* Responsif untuk tampilan lebih kecil (smartphone) */
+        @media (max-width: 480px) {
+            .floating-button {
+                font-size: 12px;
+                /* Menyesuaikan ukuran font lebih kecil */
+                padding: 6px 12px;
+                /* Menyesuaikan padding lebih kecil */
+                right: 5px;
+                /* Mengatur jarak kanan */
+                bottom: 5px;
+                /* Mengatur jarak bawah */
+            }
+        }
+
+        /* Menghindari scroll horizontal */
+        html,
+        body {
+            overflow-x: hidden;
+            /* Menonaktifkan scroll horizontal */
+            width: 100%;
+        }
+
+        /* Menambahkan jarak pada elemen utama */
+        body {
+            box-sizing: border-box;
+            /* Memastikan padding dan margin tidak menyebabkan overflow */
+            padding-left: 10px;
+            /* Menambahkan padding kiri */
+            padding-right: 10px;
+            /* Menambahkan padding kanan */
+
+            background-color: #f8ebd5;
+            /* Warna kuning keemasan seperti kertas kitab klasik */
+            color: #333;
+            /* Warna teks agar kontras dengan latar belakang */
+
+        }
+
+        .arabic-container {
+            padding-left: 10px;
+            /* Jarak kiri dari container */
+            padding-right: 10px;
+            /* Jarak kanan dari container */
+        }
+
+        /* Container utama switch */
+        .toggle-switch {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            /* Lebar switch */
+            height: 30px;
+            /* Tinggi switch */
+            display: inline-block;
+            z-index: 9999; /* Menjaga tombol tetap di atas elemen lain */
+        }
+
+        /* Input checkbox (disembunyikan) */
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* Slider utama */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            /* Warna default OFF */
+            transition: 0.4s;
+            border-radius: 30px;
+        }
+
+        /* Lingkaran di dalam slider */
+        .slider::before {
+            content: "";
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ketika tombol diaktifkan (ON) */
+        input:checked+.slider {
+            background-color: #4CAF50;
+            /* Warna hijau saat aktif */
+        }
+
+        /* Gerakkan lingkaran ke kanan saat ON */
+        input:checked+.slider::before {
+            transform: translateX(30px);
+        }
+
+        /* Responsif untuk tampilan mobile */
+        @media (max-width: 600px) {
+            .toggle-switch {
+                width: 50px;
+                /* Sedikit lebih kecil di mobile */
+                height: 25px;
+            }
+
+            .slider::before {
+                height: 20px;
+                width: 20px;
+                bottom: 2.5px;
+                left: 2.5px;
+            }
+
+            input:checked+.slider::before {
+                transform: translateX(25px);
+            }
+        }
     </style>
 </head>
 
 <body>
-    <h1>نَوَاقِضِ الإِسْلاَمِ</h1>
-    <div class="arabic-container">
+    <!-- <button class="floating-button" onclick="toggleHarakat()">Harokat On/Off</button> -->
+
+    <label class="toggle-switch">
+        <input type="checkbox" id="toggleHarokat">
+        <span class="slider"></span>
+    </label>
+
+
+    <h1>
+        <span class="arabic">نَوَاقِضُ<span class="tooltip">Pembatal-Pembatal</span></span>
+        <span class="arabic">الإِسْلاَمِ<span class="tooltip">Keislaman</span></span>
+    </h1>
+    <div class="arabic-container" id="text-container">
         <p>
             <span class="arabic">اعْلَمْ<span class="tooltip">Ketahuilah</span></span>
             <span class="arabic">أَنَّ<span class="tooltip">sesungguhnya</span></span>
@@ -81,12 +279,38 @@
             <span class="arabic">الإِسْلاَمِ<span class="tooltip">keislaman</span></span>
             <span class="arabic">عَشَرَةٌ<span class="tooltip">ada 10</span></span>
         </p>
+
         <p>
             <span class="arabic">الأَوَّلُ<span class="tooltip">pertama</span></span>
             <span class="arabic">الشِّرْكُ<span class="tooltip">Syirik</span></span>
             <span class="arabic">فِي<span class="tooltip">dalam</span></span>
             <span class="arabic">عِبَادَةِ<span class="tooltip">beribadah</span></span>
             <span class="arabic">اللَّهِ<span class="tooltip">kepada Allah</span></span>
+            <span class="arabic">تَعَالَى<span class="tooltip">Yang Maha Tinggi</span></span>
+            <span class="arabic">وَالدَّلِيلُ<span class="tooltip">Dan dalilnya</span></span>
+            <span class="arabic">قَوْلُهُ<span class="tooltip">perkataan-Nya</span></span>
+            <span class="arabic">تَعَالَى<span class="tooltip">Yang Maha Tinggi</span></span>
+            <span class="arabic">إِنَّ<span class="tooltip">Sesungguhnya</span></span>
+            <span class="arabic">اللَّهَ<span class="tooltip">Allah</span></span>
+            <span class="arabic">لَا<span class="tooltip">tidak</span></span>
+            <span class="arabic">يَغْفِرُ<span class="tooltip">mengampuni</span></span>
+            <span class="arabic">أَنْ يُشْرَكَ<span class="tooltip">disekutukan</span></span>
+            <span class="arabic">بِهِ<span class="tooltip">dengan-Nya</span></span>
+            <span class="arabic">وَيَغْفِرُ<span class="tooltip">dan mengampuni</span></span>
+            <span class="arabic">مَا<span class="tooltip">apa</span></span>
+            <span class="arabic">دُونَ<span class="tooltip">selain</span></span>
+            <span class="arabic">ذَٰلِكَ<span class="tooltip">itu</span></span>
+            <span class="arabic">لِمَنْ<span class="tooltip">bagi siapa</span></span>
+            <span class="arabic">يَشَاءُ<span class="tooltip">yang Dia kehendaki</span></span>
+            <span class="arabic">وَمِنْهُ<span class="tooltip">dan di antaranya</span></span>
+            <span class="arabic">الذَّبْحُ<span class="tooltip">menyembelih</span></span>
+            <span class="arabic">لِغَيْرِ<span class="tooltip">untuk selain</span></span>
+            <span class="arabic">اللَّهِ<span class="tooltip">Allah</span></span>
+            <span class="arabic">كَمَنْ<span class="tooltip">seperti orang yang</span></span>
+            <span class="arabic">يَذْبَحُ<span class="tooltip">menyembelih</span></span>
+            <span class="arabic">لِلْجِنِّ<span class="tooltip">kepada jin</span></span>
+            <span class="arabic">أَوْ<span class="tooltip">atau</span></span>
+            <span class="arabic">لِلْقَبْرِ<span class="tooltip">untuk kuburan</span></span>
         </p>
         <p>
             <span class="arabic">الثَّانِي<span class="tooltip">kedua</span></span>
@@ -100,7 +324,7 @@
             <span class="arabic">الشَّفَاعَةَ<span class="tooltip">syafa'at</span></span>
             <span class="arabic">وَيَتَوَكَّلُ<span class="tooltip">dan bertawakal</span></span>
             <span class="arabic">عَلَيْهِمْ<span class="tooltip">kepada mereka</span></span>
-            <span class="arabic">فَقَدْ كَفَرَ<span class="tooltip">maka dia kafir</span></span>
+            <span class="arabic">كَفَرَ<span class="tooltip">maka dia kafir</span></span>
             <span class="arabic">إِجْمَاعًا<span class="tooltip">secara ijma'</span></span>
         </p>
         <p>
@@ -112,7 +336,7 @@
                     mereka</span></span>
             <span class="arabic">أَوْ صَحَّحَ مَذْهَبَهُمْ<span class="tooltip">atau membenarkan keyakinan
                     mereka</span></span>
-            <span class="arabic">فَقَدْ كَفَرَ<span class="tooltip">maka dia kafir</span></span>
+            <span class="arabic">كَفَرَ<span class="tooltip">maka dia kafir</span></span>
             <span class="arabic">إِجْمَاعًا<span class="tooltip">secara ijma'</span></span>
         </p>
 
@@ -142,7 +366,16 @@
                     Rasul</span></span>
             <span class="arabic">ﷺ<span class="tooltip">ﷺ</span></span>
             <span class="arabic">وَلَوْ عَمِلَ بِهِ<span class="tooltip">walaupun dia mengamalkannya</span></span>
-            <span class="arabic">؛ كَفَرَ إِجْمَاعًا<span class="tooltip">maka dia kafir secara ijma'</span></span>
+            <span class="arabic">كَفَرَ إِجْمَاعًا<span class="tooltip">maka dia kafir secara ijma'</span></span>
+            <span class="arabic">وَالدَّلِيلُ<span class="tooltip">Dan dalilnya</span></span>
+            <span class="arabic">قَوْلُهُ<span class="tooltip">perkataan-Nya</span></span>
+            <span class="arabic">تَعَالَى<span class="tooltip">Yang Maha Tinggi</span></span>:
+            <span class="arabic">ذَٰلِكَ<span class="tooltip">Itu</span></span>
+            <span class="arabic">بِأَنَّهُمْ<span class="tooltip">karena mereka</span></span>
+            <span class="arabic">كَرِهُوا<span class="tooltip">membenci</span></span>
+            <span class="arabic">مَا<span class="tooltip">apa yang</span></span>
+            <span class="arabic">أَنزَلَ اللَّهُ<span class="tooltip">diturunkan oleh</span></span>
+            <span class="arabic"><span class="tooltip">Allah</span></span>
         </p>
 
         <p>
@@ -152,7 +385,21 @@
             <span class="arabic">بِشَيْءٍ مِنْ دِينِ اللهِ<span class="tooltip">sesuatu dari agama Allah</span></span>
             <span class="arabic">أَوْ ثَوَابِهِ<span class="tooltip">atau pahalanya</span></span>
             <span class="arabic">أَوْ عِقَابِهِ<span class="tooltip">atau hukumannya</span></span>
-            <span class="arabic">؛ كَفَرَ<span class="tooltip">maka dia kafir</span></span>
+            <span class="arabic">كَفَرَ<span class="tooltip">maka dia kafir</span></span>
+            <span class="arabic">وَالدَّلِيلُ<span class="tooltip">Dan dalilnya</span></span>
+            <span class="arabic">قَوْلُهُ<span class="tooltip">perkataan-Nya</span></span>
+            <span class="arabic">تَعَالَى<span class="tooltip">Yang Maha Tinggi</span></span>:
+            <span class="arabic">قُلْ<span class="tooltip">Katakanlah</span></span>
+            <span class="arabic">أَبِاللَّهِ<span class="tooltip">Apakah kepada Allah</span></span>
+            <span class="arabic">وَآيَاتُهُ<span class="tooltip">dan ayat-ayat-Nya</span></span>
+            <span class="arabic">وَرَسُولُهُ<span class="tooltip">dan Rasul-Nya</span></span>
+            <span class="arabic">كُنتُمْ<span class="tooltip">kalian</span></span>
+            <span class="arabic">تَسْتَهْزِئُونَ<span class="tooltip">mengolok-olok</span></span>
+            <span class="arabic">لَا<span class="tooltip">Jangan</span></span>
+            <span class="arabic">تَعْتَذِرُوا<span class="tooltip">kalian minta maaf</span></span>
+            <span class="arabic">قَدْ<span class="tooltip">sesungguhnya</span></span>
+            <span class="arabic">كَفَرْتُمْ<span class="tooltip">kalian telah kafir</span></span>
+            <span class="arabic">بَعْدَ إِيمَانِكُمْ<span class="tooltip">setelah kalian beriman</span></span>
         </p>
 
         <p>
@@ -160,12 +407,20 @@
             <span class="arabic">السِّحْرُ<span class="tooltip">Sihir</span></span>
             <span class="arabic">ومنْهُ الصَّرْفُ وَالعَطْفُ<span class="tooltip">Dan termasuk di dalamnya: ṣarf dan
                     ‘aṭf</span></span>
-            <span class="arabic">فَمَنْ فَعَلَهُ أَوْ رَضِيَ بِهِ؛ كَفَرَ<span class="tooltip">Barangsiapa yang
+            <span class="arabic">فَمَنْ فَعَلَهُ أَوْ رَضِيَ بِهِكَفَرَ<span class="tooltip">Barangsiapa yang
                     melakukannya atau meridainya, maka dia kafir</span></span>
             <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى<span class="tooltip">Dan dalilnya adalah firman Allah
                     Ta‘ālā</span></span>
-            <span class="arabic">وَمَا يُعَلِّمَانِ مِنْ أَحَدٍ حَتَّى يَقُولَا إِنَّمَا نَحْنُ فِتْنَةٌ فَلَا
-                تَكْفُرْ<span class="tooltip">Al-Baqarah: 102</span></span>
+            <span class="arabic">وَمَا<span class="tooltip">Dan tidaklah</span></span>
+            <span class="arabic">يُعَلِّمَانِ<span class="tooltip">kedua malaikat itu mengajarkan</span></span>
+            <span class="arabic">مِنْ<span class="tooltip">kepada</span></span>
+            <span class="arabic">أَحَدٍ<span class="tooltip">seseorang</span></span>
+            <span class="arabic">حَتَّى<span class="tooltip">sampai</span></span>
+            <span class="arabic">يَقُولَا<span class="tooltip">mereka berkata</span></span>
+            <span class="arabic">إِنَّمَا نَحْنُ<span class="tooltip">sesungguhnya kami hanya</span></span>
+            <span class="arabic">فِتْنَةٌ<span class="tooltip">sebuah ujian</span></span>
+            <span class="arabic">فَلَا<span class="tooltip">maka janganlah</span></span>
+            <span class="arabic">تَكْفُرْ<span class="tooltip">kamu kufur</span></span>
         </p>
 
         <p>
@@ -175,8 +430,17 @@
                     kaum muslimin</span></span>
             <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى<span class="tooltip">Dan dalilnya adalah firman Allah
                     Ta‘ālā</span></span>
-            <span class="arabic">وَمَنْ يَتَوَلَّهُمْ مِنْكُمْ فَإِنَّهُ مِنْهُمْ إِنَّ اللَّهَ لَا يَهْدِي القَوْمَ
-                الظَّالِمِينَ<span class="tooltip">Al-Mā’idah: 51</span></span>
+            <span class="arabic">وَمَنْ<span class="tooltip">Dan barang siapa</span></span>
+            <span class="arabic">يَتَوَلَّهُمْ<span class="tooltip">menjadikan mereka sebagai pemimpin</span></span>
+            <span class="arabic">مِنْكُمْ<span class="tooltip">di antara kalian</span></span>
+            <span class="arabic">فَإِنَّهُ<span class="tooltip">maka sesungguhnya dia</span></span>
+            <span class="arabic">مِنْهُمْ<span class="tooltip">adalah bagian dari mereka</span></span>
+            <span class="arabic">إِنَّ<span class="tooltip">sesungguhnya</span></span>
+            <span class="arabic">اللَّهَ<span class="tooltip">Allah</span></span>
+            <span class="arabic">لَا<span class="tooltip">tidak</span></span>
+            <span class="arabic">يَهْدِي<span class="tooltip">memberi petunjuk</span></span>
+            <span class="arabic">القَوْمَ<span class="tooltip">kepada kaum</span></span>
+            <span class="arabic">الظَّالِمِينَ<span class="tooltip">yang zalim</span></span>
         </p>
 
         <p>
@@ -186,7 +450,7 @@
                     class="tooltip">Bahwa ada sebagian manusia yang tidak wajib mengikuti Nabi ﷺ</span></span>
             <span class="arabic">وَأَنَّهُ يَسَعُهُ الخُرُوجُ عَنْ شَرِيعَتِهِ ﷺ<span class="tooltip">Dan bahwa ia boleh
                     keluar dari syariat beliau ﷺ</span></span>
-            <span class="arabic">كَمَا وَسِعَ الخَضِرُ الخُرُوجَ عَنْ شَرِيعَةِ مُوسَى ﷺ<span
+            <span class="arabic">كَمَا وَسِعَ الخَضِرُ الخُرُوجَ عَنْ شَرِيعَةِ مُوسَى عَلَيْهِ السَّلاَمُ<span
                     class="tooltip">Sebagaimana Al-Khaḍir keluar dari syariat Mūsā ﷺ</span></span>
             <span class="arabic">فَهُوَ كَافِرٌ<span class="tooltip">Maka dia kafir</span></span>
         </p>
@@ -199,55 +463,119 @@
                     tidak mengamalkannya</span></span>
             <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى<span class="tooltip">Dan dalilnya adalah firman Allah
                     Ta‘ālā</span></span>
-            <span class="arabic">وَمَنْ أَظْلَمُ مِمَّنْ ذُكِّرَ بِآيَاتِ رَبِّهِ ثُمَّ أَعْرَضَ عَنْهَا إِنَّا مِنَ
-                المُجْرِمِينَ مُنتَقِمُونَ<span class="tooltip">As-Sajdah: 22</span></span>
-        </p>
-
-        <p>
-            <span class="arabic">وَمَنْ أَظْلَمُ مِمَّنْ ذُكِّرَ بِآيَاتِ رَبِّهِ ثُمَّ أَعْرَضَ عَنْهَا<span
-                    class="tooltip">Dan siapakah yang lebih zalim daripada orang yang diperingatkan dengan ayat-ayat
-                    Tuhannya, kemudian ia berpaling darinya?</span></span>
+            <span class="arabic">وَمَنْ<span class="tooltip">Dan siapakah</span></span>
+            <span class="arabic">أَظْلَمُ<span class="tooltip">yang lebih zalim</span></span>
+            <span class="arabic">مِمَّنْ<span class="tooltip">daripada orang yang</span></span>
+            <span class="arabic">ذُكِّرَ<span class="tooltip">diperingatkan</span></span>
+            <span class="arabic">بِآيَاتِ<span class="tooltip">dengan ayat-ayat</span></span>
+            <span class="arabic">رَبِّهِ<span class="tooltip">Tuhannya</span></span>
+            <span class="arabic">ثُمَّ<span class="tooltip">kemudian</span></span>
+            <span class="arabic">أَعْرَضَ<span class="tooltip">ia berpaling</span></span>
+            <span class="arabic">عَنْهَا<span class="tooltip">darinya</span></span>
             <span class="arabic">إِنَّا مِنَ المُجْرِمِينَ مُنتَقِمُونَ<span class="tooltip">Sesungguhnya Kami akan
-                    memberikan pembalasan kepada orang-orang yang berdosa.</span></span>
+                    memberikan pembalasan kepada orang-orang yang berdosa</span></span>
         </p>
 
         <p>
             <span class="arabic">وَلَا فَرْقَ<span class="tooltip">Dan tidak ada perbedaan</span></span>
-            <span class="arabic">فِي جَمِيعِ هَذِهِ النَّوَاقِضِ بَيْنَ الهَازِلِ وَالجَادِّ وَالخَائِفِ، إِلَّا
-                المُكْرَهُ.<span class="tooltip">Dalam semua pembatal ini antara orang yang bercanda, serius, maupun
-                    takut, kecuali orang yang dipaksa.</span></span>
-        </p>
-
+            <span class="arabic">فِي<span class="tooltip">dalam</span></span>
+            <span class="arabic">جَمِيعِ<span class="tooltip">semua</span></span>
+            <span class="arabic">هَذِهِ النَّوَاقِضِ<span class="tooltip">pembatal ini</span></span>
+            <span class="arabic">بَيْنَ<span class="tooltip">antara</span></span>
+            <span class="arabic">الهَازِلِ<span class="tooltip">orang yang bercanda</span></span>
+            <span class="arabic">وَالجَادِّ<sup class="tooltip">dan yang serius</sup></span>
+            <span class="arabic">وَالخَائِفِ<span class="tooltip">dan yang takut</span></span>
+            <span class="arabic">إِلَّا<span class="tooltip">kecuali</span></span>
+            <span class="arabic">المُكْرَهُ<span class="tooltip">orang yang dipaksa</span></span>
         <p>
             <span class="arabic">وَكُلُّهَا<span class="tooltip">Dan semuanya</span></span>
-            <span class="arabic">مِنْ أَعْظَمِ مَا يَكُونُ خَطَرًا، وَمِنْ أَكْثَرِ مَا يَكُونُ وُقُوعًا.<span
-                    class="tooltip">Merupakan perkara yang paling berbahaya serta paling sering terjadi.</span></span>
+            <span class="arabic">مِنْ<span class="tooltip">termasuk di antara</span></span>
+            <span class="arabic">أَعْظَمِ مَا يَكُونُ خَطَرًا<span class="tooltip">perkara yang paling
+                    berbahaya</span></span>
+            <span class="arabic">وَمِنْ أَكْثَرِ مَا يَكُونُ وُقُوعًا<span class="tooltip">dan termasuk di antara yang
+                    paling sering terjadi</span></span>
         </p>
 
         <p>
-            <span class="arabic">فَيَنْبَغِي لِلمُسْلِمِ أَنْ يَحْذَرَهَا وَيَخَافَ مِنْهَا عَلَى نَفْسِهِ.<span
-                    class="tooltip">Maka seorang muslim seharusnya berhati-hati terhadapnya dan takut akan hal itu
-                    menimpa dirinya.</span></span>
+            <span class="arabic">فَيَنْبَغِي<span class="tooltip">Maka seharusnya</span></span>
+            <span class="arabic">لِلمُسْلِمِ<span class="tooltip">seorang muslim</span></span>
+            <span class="arabic">أَنْ يَحْذَرَهَا<span class="tooltip">berhati-hati terhadapnya</span></span>
+            <span class="arabic">وَيَخَافَ<span class="tooltip">dan takut</span></span>
+            <span class="arabic">مِنْهَا<span class="tooltip">akan hal itu</span></span>
+            <span class="arabic">عَلَى<span class="tooltip">menimpa</span></span>
+            <span class="arabic">نَفْسِهِ<span class="tooltip">dirinya</span></span>
+            <span class="arabic">نَعُوذُ<span class="tooltip">Kami berlindung</span></span>
+            <span class="arabic">بِاللَّهِ<span class="tooltip">kepada Allah</span></span>
+            <span class="arabic">مِنْ<span class="tooltip">dari</span></span>
+            <span class="arabic">مُوجِبَاتِ<span class="tooltip">segala hal yang mendatangkan</span></span>
+            <span class="arabic">غَضَبِهِ<span class="tooltip">murka-Nya</span></span>
+            <span class="arabic">وَأَلِيمِ<span class="tooltip">dan azab-Nya yang</span></span>
+            <span class="arabic">عِقَابِهِ<span class="tooltip">pedih</span></span>
         </p>
 
         <p>
-            <span class="arabic">نَعُوذُ بِاللَّهِ مِنْ مُوجِبَاتِ غَضَبِهِ، وَأَلِيمِ عِقَابِهِ.<span
-                    class="tooltip">Kami berlindung kepada Allah dari segala hal yang mendatangkan murka-Nya dan dari
-                    azab-Nya yang pedih.</span></span>
-        </p>
-
-        <p>
-            <span class="arabic">وَصَلَّى اللَّهُ عَلَى نَبِيِّنَا مُحَمَّدٍ، وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ.<span
+            <span class="arabic">وَصَلَّى اللَّهُ عَلَى نَبِيِّنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ<span
                     class="tooltip">Semoga Allah mencurahkan shalawat kepada Nabi kita Muhammad, kepada keluarganya,
-                    serta para sahabatnya.</span></span>
+                    serta para sahabatnya</span></span>
         </p>
 
         <p>
-            <span class="arabic">تَمَّ وَالحَمْدُ لِلَّهِ<span class="tooltip">Selesai, dan segala puji bagi
-                    Allah.</span></span>
+            <span class="arabic">تَمَّ بِحَمْدِ اللَّهِ<span class="tooltip">Selesai, dan segala puji bagi
+                    Allah</span></span>
         </p>
-
     </div>
+
+    <script>
+        let harakatVisible = true;
+
+        function toggleHarakat() {
+            const arabicText = document.querySelectorAll('.arabic');
+            arabicText.forEach(span => {
+                if (harakatVisible) {
+                    span.innerHTML = span.innerHTML.replace(/[ً-ْ]/g, '');
+                } else {
+                    span.innerHTML = span.dataset.original;
+                }
+            });
+            harakatVisible = !harakatVisible;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.arabic').forEach(span => {
+                span.dataset.original = span.innerHTML;
+            });
+        });
+
+        document.getElementById("toggleHarokat").addEventListener("change", function () {
+            if (this.checked) {
+                console.log("Harokat ON");
+                // Tambahkan kode untuk menampilkan harokat di sini
+                const arabicText = document.querySelectorAll('.arabic');
+                arabicText.forEach(span => {
+                    if (harakatVisible) {
+                        span.innerHTML = span.innerHTML.replace(/[ً-ْ]/g, '');
+                    } else {
+                        span.innerHTML = span.dataset.original;
+                    }
+                });
+                harakatVisible = !harakatVisible;
+
+            } else {
+                console.log("Harokat OFF");
+                // Tambahkan kode untuk menyembunyikan harokat di sini
+                const arabicText = document.querySelectorAll('.arabic');
+                arabicText.forEach(span => {
+                    if (harakatVisible) {
+                        span.innerHTML = span.innerHTML.replace(/[ً-ْ]/g, '');
+                    } else {
+                        span.innerHTML = span.dataset.original;
+                    }
+                });
+                harakatVisible = !harakatVisible;
+
+            }
+        });
+    </script>
 </body>
 
 </html>
