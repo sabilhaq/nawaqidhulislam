@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nawaqidhul Islam</title>
+    <style>
+        @font-face {
+            font-family: 'Kitab-Regular';
+            src: url('Kitab-Regular.woff2') format('woff2');
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .arabic-container {
+            direction: rtl;
+            text-align: right;
+            font-size: 32px;
+            display: inline-block;
+            font-family: 'Kitab-Regular', serif;
+        }
+
+        .arabic {
+            cursor: pointer;
+            position: relative;
+            display: inline;
+            transition: color 0.3s;
+        }
+
+        .arabic:hover {
+            color: darkred;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 16px;
+            z-index: 10;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .arabic:hover .tooltip {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>نَوَاقِضِ الإِسْلاَمِ</h1>
+    <div class="arabic-container">
+        <p>
+            <span class="arabic">اعْلَمْ<span class="tooltip">Ketahuilah</span></span>
+            <span class="arabic">أَنَّ<span class="tooltip">sesungguhnya</span></span>
+            <span class="arabic">مِنْ<span class="tooltip">di antara</span></span>
+            <span class="arabic">أَعْظَمِ<span class="tooltip">paling besar</span></span>
+            <span class="arabic">نَوَاقِضِ<span class="tooltip">pembatal</span></span>
+            <span class="arabic">الإِسْلاَمِ<span class="tooltip">keislaman</span></span>
+            <span class="arabic">عَشَرَةٌ<span class="tooltip">ada 10</span></span>
+        </p>
+        <p>
+            <span class="arabic">الأَوَّلُ<span class="tooltip">pertama</span></span>
+            <span class="arabic">الشِّرْكُ<span class="tooltip">Syirik</span></span>
+            <span class="arabic">فِي<span class="tooltip">dalam</span></span>
+            <span class="arabic">عِبَادَةِ<span class="tooltip">beribadah</span></span>
+            <span class="arabic">اللَّهِ<span class="tooltip">kepada Allah</span></span>
+        </p>
+        <p>
+            <span class="arabic">الثَّانِي<span class="tooltip">kedua</span></span>
+            <span class="arabic">مَنْ<span class="tooltip">Barangsiapa</span></span>
+            <span class="arabic">جَعَلَ<span class="tooltip">menjadikan</span></span>
+            <span class="arabic">بَيْنَهُ<span class="tooltip">antara dirinya</span></span>
+            <span class="arabic">وَبَيْنَ اللَّهِ<span class="tooltip">dan antara Allah</span></span>
+            <span class="arabic">وَسَائِطَ<span class="tooltip">perantara</span></span>
+            <span class="arabic">يَدْعُوهُمْ<span class="tooltip">berdoa kepada mereka</span></span>
+            <span class="arabic">وَيَسْأَلُهُمْ<span class="tooltip">meminta kepada mereka</span></span>
+            <span class="arabic">الشَّفَاعَةَ<span class="tooltip">syafa'at</span></span>
+            <span class="arabic">وَيَتَوَكَّلُ<span class="tooltip">dan bertawakal</span></span>
+            <span class="arabic">عَلَيْهِمْ<span class="tooltip">kepada mereka</span></span>
+            <span class="arabic">فَقَدْ كَفَرَ<span class="tooltip">maka dia kafir</span></span>
+            <span class="arabic">إِجْمَاعًا<span class="tooltip">secara ijma'</span></span>
+        </p>
+        <p>
+            <span class="arabic">الثَّالِثُ<span class="tooltip">ketiga</span></span>
+            <span class="arabic">مَنْ<span class="tooltip">Barangsiapa</span></span>
+            <span class="arabic">لَمْ يُكَفِّرِ<span class="tooltip">yang tidak mengkafirkan</span></span>
+            <span class="arabic">المُشْرِكِينَ<span class="tooltip">orang musyrik</span></span>
+            <span class="arabic">أَوْ شَكَّ فِي كُفْرِهِمْ<span class="tooltip">atau ragu terhadap kekafiran
+                    mereka</span></span>
+            <span class="arabic">أَوْ صَحَّحَ مَذْهَبَهُمْ<span class="tooltip">atau membenarkan keyakinan
+                    mereka</span></span>
+            <span class="arabic">فَقَدْ كَفَرَ<span class="tooltip">maka dia kafir</span></span>
+            <span class="arabic">إِجْمَاعًا<span class="tooltip">secara ijma'</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">الرَّابِعُ<span class="tooltip">keempat</span></span>
+            <span class="arabic">مَنْ<span class="tooltip">Barangsiapa</span></span>
+            <span class="arabic">اعْتَقَدَ<span class="tooltip">meyakini</span></span>
+            <span class="arabic">أَنَّ<span class="tooltip">bahwa</span></span>
+            <span class="arabic">غَيْرَ هَدْيِ النَّبِيِّ<span class="tooltip">selain petunjuk Nabi</span></span>
+            <span class="arabic">ﷺ<span class="tooltip">ﷺ</span></span>
+            <span class="arabic">أَكْمَلُ مِنْ هَدْيِهِ<span class="tooltip">lebih sempurna dari
+                    petunjuknya</span></span>
+            <span class="arabic">أَوْ<span class="tooltip">atau</span></span>
+            <span class="arabic">أَنَّ حُكْمَ غَيْرِهِ أَحْسَنُ مِنْ حُكْمِهِ<span class="tooltip">bahwa hukum selainnya
+                    lebih baik dari hukumnya</span></span>
+            <span class="arabic">- كَالَّذِينَ يُفَضِّلُونَ حُكْمَ الطَّوَاغِيتِ<span class="tooltip">seperti
+                    orang-orang yang lebih mengutamakan hukum thaghut</span></span>
+            <span class="arabic">عَلَى حُكْمِهِ - فَهُوَ كَافِرٌ<span class="tooltip">di atas hukumnya - maka dia
+                    kafir</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">الخَامِسُ<span class="tooltip">kelima</span></span>
+            <span class="arabic">مَنْ<span class="tooltip">Barangsiapa</span></span>
+            <span class="arabic">أَبْغَضَ<span class="tooltip">membenci</span></span>
+            <span class="arabic">شَيْئًا مِمَّا جَاءَ بِهِ الرَّسُولُ<span class="tooltip">sesuatu yang dibawa oleh
+                    Rasul</span></span>
+            <span class="arabic">ﷺ<span class="tooltip">ﷺ</span></span>
+            <span class="arabic">وَلَوْ عَمِلَ بِهِ<span class="tooltip">walaupun dia mengamalkannya</span></span>
+            <span class="arabic">؛ كَفَرَ إِجْمَاعًا<span class="tooltip">maka dia kafir secara ijma'</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">السَّادِسُ<span class="tooltip">keenam</span></span>
+            <span class="arabic">مَنْ<span class="tooltip">Barangsiapa</span></span>
+            <span class="arabic">اسْتَهْزَأَ<span class="tooltip">mengolok-olok</span></span>
+            <span class="arabic">بِشَيْءٍ مِنْ دِينِ اللهِ<span class="tooltip">sesuatu dari agama Allah</span></span>
+            <span class="arabic">أَوْ ثَوَابِهِ<span class="tooltip">atau pahalanya</span></span>
+            <span class="arabic">أَوْ عِقَابِهِ<span class="tooltip">atau hukumannya</span></span>
+            <span class="arabic">؛ كَفَرَ<span class="tooltip">maka dia kafir</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">السَّابِعُ<span class="tooltip">Ketujuh</span></span>
+            <span class="arabic">السِّحْرُ<span class="tooltip">Sihir</span></span>
+            <span class="arabic">ومنْهُ الصَّرْفُ وَالعَطْفُ<span class="tooltip">Dan termasuk di dalamnya: ṣarf dan
+                    ‘aṭf</span></span>
+            <span class="arabic">فَمَنْ فَعَلَهُ أَوْ رَضِيَ بِهِ؛ كَفَرَ<span class="tooltip">Barangsiapa yang
+                    melakukannya atau meridainya, maka dia kafir</span></span>
+            <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى<span class="tooltip">Dan dalilnya adalah firman Allah
+                    Ta‘ālā</span></span>
+            <span class="arabic">وَمَا يُعَلِّمَانِ مِنْ أَحَدٍ حَتَّى يَقُولَا إِنَّمَا نَحْنُ فِتْنَةٌ فَلَا
+                تَكْفُرْ<span class="tooltip">Al-Baqarah: 102</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">الثَّامِنُ<span class="tooltip">Kedelapan</span></span>
+            <span class="arabic">مُظَاهَرَةُ المُشْرِكِينَ<span class="tooltip">Menolong orang musyrik</span></span>
+            <span class="arabic">وَمُعَاوَنَتُهُمْ عَلَى المُسْلِمِينَ<span class="tooltip">Dan membantu mereka melawan
+                    kaum muslimin</span></span>
+            <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى<span class="tooltip">Dan dalilnya adalah firman Allah
+                    Ta‘ālā</span></span>
+            <span class="arabic">وَمَنْ يَتَوَلَّهُمْ مِنْكُمْ فَإِنَّهُ مِنْهُمْ إِنَّ اللَّهَ لَا يَهْدِي القَوْمَ
+                الظَّالِمِينَ<span class="tooltip">Al-Mā’idah: 51</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">التَّاسِعُ<span class="tooltip">Kesembilan</span></span>
+            <span class="arabic">مَنْ اِعْتَقَدَ<span class="tooltip">Barangsiapa yang meyakini</span></span>
+            <span class="arabic">أَنَّ بَعْضَ النَّاسِ لَا يَجِبُ عَلَيْهِ اِتِّبَاعُ النَّبِيِّ ﷺ<span
+                    class="tooltip">Bahwa ada sebagian manusia yang tidak wajib mengikuti Nabi ﷺ</span></span>
+            <span class="arabic">وَأَنَّهُ يَسَعُهُ الخُرُوجُ عَنْ شَرِيعَتِهِ ﷺ<span class="tooltip">Dan bahwa ia boleh
+                    keluar dari syariat beliau ﷺ</span></span>
+            <span class="arabic">كَمَا وَسِعَ الخَضِرُ الخُرُوجَ عَنْ شَرِيعَةِ مُوسَى ﷺ<span
+                    class="tooltip">Sebagaimana Al-Khaḍir keluar dari syariat Mūsā ﷺ</span></span>
+            <span class="arabic">فَهُوَ كَافِرٌ<span class="tooltip">Maka dia kafir</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">العَاشِرُ<span class="tooltip">Kesepuluh</span></span>
+            <span class="arabic">الإِعْرَاضُ<span class="tooltip">Berpaling</span></span>
+            <span class="arabic">عَنْ دِينِ اللَّهِ<span class="tooltip">Dari agama Allah</span></span>
+            <span class="arabic">لَا يَتَعَلَّمُهُ وَلَا يَعْمَلُ بِهِ<span class="tooltip">Tidak mau mempelajarinya dan
+                    tidak mengamalkannya</span></span>
+            <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى<span class="tooltip">Dan dalilnya adalah firman Allah
+                    Ta‘ālā</span></span>
+            <span class="arabic">وَمَنْ أَظْلَمُ مِمَّنْ ذُكِّرَ بِآيَاتِ رَبِّهِ ثُمَّ أَعْرَضَ عَنْهَا إِنَّا مِنَ
+                المُجْرِمِينَ مُنتَقِمُونَ<span class="tooltip">As-Sajdah: 22</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">وَمَنْ أَظْلَمُ مِمَّنْ ذُكِّرَ بِآيَاتِ رَبِّهِ ثُمَّ أَعْرَضَ عَنْهَا<span
+                    class="tooltip">Dan siapakah yang lebih zalim daripada orang yang diperingatkan dengan ayat-ayat
+                    Tuhannya, kemudian ia berpaling darinya?</span></span>
+            <span class="arabic">إِنَّا مِنَ المُجْرِمِينَ مُنتَقِمُونَ<span class="tooltip">Sesungguhnya Kami akan
+                    memberikan pembalasan kepada orang-orang yang berdosa.</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">وَلَا فَرْقَ<span class="tooltip">Dan tidak ada perbedaan</span></span>
+            <span class="arabic">فِي جَمِيعِ هَذِهِ النَّوَاقِضِ بَيْنَ الهَازِلِ وَالجَادِّ وَالخَائِفِ، إِلَّا
+                المُكْرَهُ.<span class="tooltip">Dalam semua pembatal ini antara orang yang bercanda, serius, maupun
+                    takut, kecuali orang yang dipaksa.</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">وَكُلُّهَا<span class="tooltip">Dan semuanya</span></span>
+            <span class="arabic">مِنْ أَعْظَمِ مَا يَكُونُ خَطَرًا، وَمِنْ أَكْثَرِ مَا يَكُونُ وُقُوعًا.<span
+                    class="tooltip">Merupakan perkara yang paling berbahaya serta paling sering terjadi.</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">فَيَنْبَغِي لِلمُسْلِمِ أَنْ يَحْذَرَهَا وَيَخَافَ مِنْهَا عَلَى نَفْسِهِ.<span
+                    class="tooltip">Maka seorang muslim seharusnya berhati-hati terhadapnya dan takut akan hal itu
+                    menimpa dirinya.</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">نَعُوذُ بِاللَّهِ مِنْ مُوجِبَاتِ غَضَبِهِ، وَأَلِيمِ عِقَابِهِ.<span
+                    class="tooltip">Kami berlindung kepada Allah dari segala hal yang mendatangkan murka-Nya dan dari
+                    azab-Nya yang pedih.</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">وَصَلَّى اللَّهُ عَلَى نَبِيِّنَا مُحَمَّدٍ، وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ.<span
+                    class="tooltip">Semoga Allah mencurahkan shalawat kepada Nabi kita Muhammad, kepada keluarganya,
+                    serta para sahabatnya.</span></span>
+        </p>
+
+        <p>
+            <span class="arabic">تَمَّ وَالحَمْدُ لِلَّهِ<span class="tooltip">Selesai, dan segala puji bagi
+                    Allah.</span></span>
+        </p>
+
+    </div>
+</body>
+
+</html>
