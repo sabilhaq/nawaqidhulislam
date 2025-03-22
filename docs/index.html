@@ -195,6 +195,29 @@
             height: 0;
         }
 
+        .lang-switch {
+            position: fixed;
+            bottom: 20px;
+            right: 90px;
+            width: 60px;
+            /* Lebar switch */
+            height: 30px;
+            /* Tinggi switch */
+            display: inline-block;
+            z-index: 9999; /* Menjaga tombol tetap di atas elemen lain */
+        }
+
+        #langSelection {
+            cursor: pointer;
+            height: 100%;
+            width: 50px;
+            border-radius: 6px;
+            background-color: white;
+            outline-color: #ccc;
+            outline-width: 0px;
+            border-color: #ccc;
+        }
+
         /* Slider utama */
         .slider {
             position: absolute;
@@ -264,269 +287,820 @@
         <span class="slider"></span>
     </label>
 
+    <span class="lang-switch">
+        <select name="tooltip-language" id="langSelection">
+            <option value="id">ID</option>
+            <option value="jp">JP</option>
+        </select>
+    </span>
 
     <h1>
-        <span class="arabic">نَوَاقِضُ<span class="tooltip">Pembatal-Pembatal</span></span>
-        <span class="arabic">الإِسْلاَمِ<span class="tooltip">Keislaman</span></span>
+        <span class="arabic">نَوَاقِضُ
+            <span class="tooltip tooltip-id">Pembatal-Pembatal</span>
+            <span class="tooltip tooltip-jp" hidden>の無効化</span>
+        </span>
+        <span class="arabic">الإِسْلاَمِ
+            <span class="tooltip tooltip-id">Keislaman</span>
+            <span class="tooltip tooltip-jp" hidden>イスラム</span>
+        </span>
     </h1>
     <div class="arabic-container" id="text-container">
         <p>
-            <span class="arabic">اعْلَمْ<span class="tooltip">Ketahuilah</span></span>
-            <span class="arabic">أَنَّ<span class="tooltip">sesungguhnya</span></span>
-            <span class="arabic">مِنْ<span class="tooltip">di antara</span></span>
-            <span class="arabic">أَعْظَمِ<span class="tooltip">paling besar</span></span>
-            <span class="arabic">نَوَاقِضِ<span class="tooltip">pembatal</span></span>
-            <span class="arabic">الإِسْلاَمِ<span class="tooltip">keislaman</span></span>
-            <span class="arabic">عَشَرَةٌ<span class="tooltip">ada 10</span></span>
+            <span class="arabic">اعْلَمْ
+                <span class="tooltip tooltip-id">Ketahuilah</span>
+                <span class="tooltip tooltip-jp" hidden>知れ</span>
+            </span>
+            <span class="arabic">أَنَّ
+                <span class="tooltip tooltip-id">sesungguhnya</span>
+                <span class="tooltip tooltip-jp" hidden>本当に</span>
+            </span>
+            <span class="arabic">مِنْ
+                <span class="tooltip tooltip-id">di antara</span>
+                <span class="tooltip tooltip-jp" hidden>の中に</span>
+            </span>
+            <span class="arabic">أَعْظَمِ
+                <span class="tooltip tooltip-id">paling besar</span>
+                <span class="tooltip tooltip-jp" hidden>最大</span>
+            </span>
+            <span class="arabic">نَوَاقِضِ
+                <span class="tooltip tooltip-id">pembatal</span>
+                <span class="tooltip tooltip-jp" hidden>の無効化</span>
+            </span>
+            <span class="arabic">الإِسْلاَمِ
+                <span class="tooltip tooltip-id">keislaman</span>
+                <span class="tooltip tooltip-jp" hidden>イスラム</span>
+            </span>
+            <span class="arabic">عَشَرَةٌ
+                <span class="tooltip tooltip-id">ada 10</span>
+                <span class="tooltip tooltip-jp" hidden>は十</span>
+            </span>
         </p>
 
         <p>
-            <span class="arabic">الأَوَّلُ<span class="tooltip">pertama</span></span>
-            <span class="arabic">الشِّرْكُ<span class="tooltip">Syirik</span></span>
-            <span class="arabic">فِي<span class="tooltip">dalam</span></span>
-            <span class="arabic">عِبَادَةِ<span class="tooltip">beribadah</span></span>
-            <span class="arabic">اللَّهِ<span class="tooltip">kepada Allah</span></span>
-            <span class="arabic">تَعَالَى<span class="tooltip">Yang Maha Tinggi</span></span>
-            <span class="arabic">وَالدَّلِيلُ<span class="tooltip">Dan dalilnya</span></span>
-            <span class="arabic">قَوْلُهُ<span class="tooltip">perkataan-Nya</span></span>
-            <span class="arabic">تَعَالَى<span class="tooltip">Yang Maha Tinggi</span></span>
-            <span class="arabic">إِنَّ<span class="tooltip">Sesungguhnya</span></span>
-            <span class="arabic">اللَّهَ<span class="tooltip">Allah</span></span>
-            <span class="arabic">لَا<span class="tooltip">tidak</span></span>
-            <span class="arabic">يَغْفِرُ<span class="tooltip">mengampuni</span></span>
-            <span class="arabic">أَنْ يُشْرَكَ<span class="tooltip">disekutukan</span></span>
-            <span class="arabic">بِهِ<span class="tooltip">dengan-Nya</span></span>
-            <span class="arabic">وَيَغْفِرُ<span class="tooltip">dan mengampuni</span></span>
-            <span class="arabic">مَا<span class="tooltip">apa</span></span>
-            <span class="arabic">دُونَ<span class="tooltip">selain</span></span>
-            <span class="arabic">ذَٰلِكَ<span class="tooltip">itu</span></span>
-            <span class="arabic">لِمَنْ<span class="tooltip">bagi siapa</span></span>
-            <span class="arabic">يَشَاءُ<span class="tooltip">yang Dia kehendaki</span></span>
-            <span class="arabic">وَمِنْهُ<span class="tooltip">dan di antaranya</span></span>
-            <span class="arabic">الذَّبْحُ<span class="tooltip">menyembelih</span></span>
-            <span class="arabic">لِغَيْرِ<span class="tooltip">untuk selain</span></span>
-            <span class="arabic">اللَّهِ<span class="tooltip">Allah</span></span>
-            <span class="arabic">كَمَنْ<span class="tooltip">seperti orang yang</span></span>
-            <span class="arabic">يَذْبَحُ<span class="tooltip">menyembelih</span></span>
-            <span class="arabic">لِلْجِنِّ<span class="tooltip">kepada jin</span></span>
-            <span class="arabic">أَوْ<span class="tooltip">atau</span></span>
-            <span class="arabic">لِلْقَبْرِ<span class="tooltip">untuk kuburan</span></span>
+            <span class="arabic">الأَوَّلُ
+                <span class="tooltip tooltip-id">pertama</span>
+                <span class="tooltip tooltip-jp" hidden>1番目</span>
+            </span>
+            <span class="arabic">الشِّرْكُ
+                <span class="tooltip tooltip-id">Syirik</span>
+                <span class="tooltip tooltip-jp" hidden>シルク</span>
+            </span>
+            <span class="arabic">فِي
+                <span class="tooltip tooltip-id">dalam</span>
+                <span class="tooltip tooltip-jp" hidden>に</span>
+            </span>
+            <span class="arabic">عِبَادَةِ
+                <span class="tooltip tooltip-id">beribadah</span>
+                <span class="tooltip tooltip-jp" hidden>崇拝</span>
+            </span>
+            <span class="arabic">اللَّهِ
+                <span class="tooltip tooltip-id">kepada Allah</span>
+                <span class="tooltip tooltip-jp" hidden>アッラーに</span>
+            </span>
+            <span class="arabic">تَعَالَى
+                <span class="tooltip tooltip-id">Yang Maha Tinggi</span>
+                <span class="tooltip tooltip-jp" hidden>至高なる</span>
+            </span>
+            <span class="arabic">وَالدَّلِيلُ
+                <span class="tooltip tooltip-id">Dan dalilnya</span>
+                <span class="tooltip tooltip-jp" hidden>そして証拠は</span>
+            </span>
+            <span class="arabic">قَوْلُهُ
+                <span class="tooltip tooltip-id">perkataan-Nya</span>
+                <span class="tooltip tooltip-jp" hidden>彼（神）のお告げ</span>
+            </span>
+            <span class="arabic">تَعَالَى
+                <span class="tooltip tooltip-id">Yang Maha Tinggi</span>
+                <span class="tooltip tooltip-jp" hidden>至高なる</span>
+            </span>
+            <span class="arabic">إِنَّ
+                <span class="tooltip tooltip-id">Sesungguhnya</span>
+                <span class="tooltip tooltip-jp" hidden>本当に</span>
+            </span>
+            <span class="arabic">اللَّهَ
+                <span class="tooltip tooltip-id">Allah</span>
+                <span class="tooltip tooltip-jp" hidden>アッラー</span>
+            </span>
+            <span class="arabic">لَا
+                <span class="tooltip tooltip-id">tidak</span>
+                <span class="tooltip tooltip-jp" hidden>しない</span>
+            </span>
+            <span class="arabic">يَغْفِرُ
+                <span class="tooltip tooltip-id">mengampuni</span>
+                <span class="tooltip tooltip-jp" hidden>許す</span>
+            </span>
+            <span class="arabic">أَنْ يُشْرَكَ
+                <span class="tooltip tooltip-id">disekutukan</span>
+                <span class="tooltip tooltip-jp" hidden>シルクを行う</span>
+            </span>
+            <span class="arabic">بِهِ
+                <span class="tooltip tooltip-id">dengan-Nya</span>
+                <span class="tooltip tooltip-jp" hidden>彼と</span>
+            </span>
+            <span class="arabic">وَيَغْفِرُ
+                <span class="tooltip tooltip-id">dan mengampuni</span>
+                <span class="tooltip tooltip-jp" hidden>そして許す</span>
+            </span>
+            <span class="arabic">مَا
+                <span class="tooltip tooltip-id">apa</span>
+                <span class="tooltip tooltip-jp" hidden>何でも</span>
+            </span>
+            <span class="arabic">دُونَ
+                <span class="tooltip tooltip-id">selain</span>
+                <span class="tooltip tooltip-jp" hidden>以外</span>
+            </span>
+            <span class="arabic">ذَٰلِكَ
+                <span class="tooltip tooltip-id">itu</span>
+                <span class="tooltip tooltip-jp" hidden>それ</span>
+            </span>
+            <span class="arabic">لِمَنْ
+                <span class="tooltip tooltip-id">bagi siapa</span>
+                <span class="tooltip tooltip-jp" hidden>者に</span>
+            </span>
+            <span class="arabic">يَشَاءُ
+                <span class="tooltip tooltip-id">yang Dia kehendaki</span>
+                <span class="tooltip tooltip-jp" hidden>彼が望む</span>
+            </span>
+            <span class="arabic">وَمِنْهُ
+                <span class="tooltip tooltip-id">dan di antaranya</span>
+                <span class="tooltip tooltip-jp" hidden>その中には</span>
+            </span>
+            <span class="arabic">الذَّبْحُ
+                <span class="tooltip tooltip-id">menyembelih</span>
+                <span class="tooltip tooltip-jp" hidden>屠殺する</span>
+            </span>
+            <span class="arabic">لِغَيْرِ
+                <span class="tooltip tooltip-id">untuk selain</span>
+                <span class="tooltip tooltip-jp" hidden>以外のために</span>
+            </span>
+            <span class="arabic">اللَّهِ
+                <span class="tooltip tooltip-id">Allah</span>
+                <span class="tooltip tooltip-jp" hidden>アッラー</span>
+            </span>
+            <span class="arabic">كَمَنْ
+                <span class="tooltip tooltip-id">seperti orang yang</span>
+                <span class="tooltip tooltip-jp" hidden>例えば、誰か</span>
+            </span>
+            <span class="arabic">يَذْبَحُ
+                <span class="tooltip tooltip-id">menyembelih</span>
+                <span class="tooltip tooltip-jp" hidden>屠殺する</span>
+            </span>
+            <span class="arabic">لِلْجِنِّ
+                <span class="tooltip tooltip-id">kepada jin</span>
+                <span class="tooltip tooltip-jp" hidden>ジンのために</span>
+            </span>
+            <span class="arabic">أَوْ
+                <span class="tooltip tooltip-id">atau</span>
+                <span class="tooltip tooltip-jp" hidden>それとも</span>
+            </span>
+            <span class="arabic">لِلْقَبْرِ
+                <span class="tooltip tooltip-id">untuk kuburan</span>
+                <span class="tooltip tooltip-jp" hidden>墓のために</span>
+            </span>
         </p>
         <p>
-            <span class="arabic">الثَّانِي<span class="tooltip">kedua</span></span>
-            <span class="arabic">مَنْ<span class="tooltip">Barangsiapa</span></span>
-            <span class="arabic">جَعَلَ<span class="tooltip">menjadikan</span></span>
-            <span class="arabic">بَيْنَهُ<span class="tooltip">antara dirinya</span></span>
-            <span class="arabic">وَبَيْنَ اللَّهِ<span class="tooltip">dan antara Allah</span></span>
-            <span class="arabic">وَسَائِطَ<span class="tooltip">perantara</span></span>
-            <span class="arabic">يَدْعُوهُمْ<span class="tooltip">berdoa kepada mereka</span></span>
-            <span class="arabic">وَيَسْأَلُهُمْ<span class="tooltip">meminta kepada mereka</span></span>
-            <span class="arabic">الشَّفَاعَةَ<span class="tooltip">syafa'at</span></span>
-            <span class="arabic">وَيَتَوَكَّلُ<span class="tooltip">dan bertawakal</span></span>
-            <span class="arabic">عَلَيْهِمْ<span class="tooltip">kepada mereka</span></span>
-            <span class="arabic">كَفَرَ<span class="tooltip">maka dia kafir</span></span>
-            <span class="arabic">إِجْمَاعًا<span class="tooltip">secara ijma'</span></span>
+            <span class="arabic">الثَّانِي
+                <span class="tooltip tooltip-id">kedua</span>
+                <span class="tooltip tooltip-jp" hidden>2番目</span>
+            </span>
+            <span class="arabic">مَنْ
+                <span class="tooltip tooltip-id">Barangsiapa</span>
+                <span class="tooltip tooltip-jp" hidden>誰でも</span>
+            </span>
+            <span class="arabic">جَعَلَ
+                <span class="tooltip tooltip-id">menjadikan</span>
+                <span class="tooltip tooltip-jp" hidden>を作った</span>
+            </span>
+            <span class="arabic">بَيْنَهُ
+                <span class="tooltip tooltip-id">antara dirinya</span>
+                <span class="tooltip tooltip-jp" hidden>自分と</span>
+            </span>
+            <span class="arabic">وَبَيْنَ اللَّهِ
+                <span class="tooltip tooltip-id">dan antara Allah</span>
+                <span class="tooltip tooltip-jp" hidden>アッラーの間に</span>
+            </span>
+            <span class="arabic">وَسَائِطَ
+                <span class="tooltip tooltip-id">perantara</span>
+                <span class="tooltip tooltip-jp" hidden>仲介者</span>
+            </span>
+            <span class="arabic">يَدْعُوهُمْ
+                <span class="tooltip tooltip-id">berdoa kepada mereka</span>
+                <span class="tooltip tooltip-jp" hidden>彼らに祈り</span>
+            </span>
+            <span class="arabic">وَيَسْأَلُهُمْ
+                <span class="tooltip tooltip-id">meminta kepada mereka</span>
+                <span class="tooltip tooltip-jp" hidden>彼らに願い</span>
+            </span>
+            <span class="arabic">الشَّفَاعَةَ
+                <span class="tooltip tooltip-id">syafa'at</span>
+                <span class="tooltip tooltip-jp" hidden>シャファアー（執り成し）</span>
+            </span>
+            <span class="arabic">وَيَتَوَكَّلُ
+                <span class="tooltip tooltip-id">dan bertawakal</span>
+                <span class="tooltip tooltip-jp" hidden>そして信頼し</span>
+            </span>
+            <span class="arabic">عَلَيْهِمْ
+                <span class="tooltip tooltip-id">kepada mereka</span>
+                <span class="tooltip tooltip-jp" hidden>彼らに</span>
+            </span>
+            <span class="arabic">كَفَرَ
+                <span class="tooltip tooltip-id">maka dia kafir</span>
+                <span class="tooltip tooltip-jp" hidden>それで彼は不信心者となった</span>
+            </span>
+            <span class="arabic">إِجْمَاعًا
+                <span class="tooltip tooltip-id">secara ijma'</span>
+                <span class="tooltip tooltip-jp" hidden>総意により</span>
+            </span>
         </p>
         <p>
-            <span class="arabic">الثَّالِثُ<span class="tooltip">ketiga</span></span>
-            <span class="arabic">مَنْ<span class="tooltip">Barangsiapa</span></span>
-            <span class="arabic">لَمْ يُكَفِّرِ<span class="tooltip">yang tidak mengkafirkan</span></span>
-            <span class="arabic">المُشْرِكِينَ<span class="tooltip">orang musyrik</span></span>
-            <span class="arabic">أَوْ شَكَّ فِي كُفْرِهِمْ<span class="tooltip">atau ragu terhadap kekafiran
-                    mereka</span></span>
-            <span class="arabic">أَوْ صَحَّحَ مَذْهَبَهُمْ<span class="tooltip">atau membenarkan keyakinan
-                    mereka</span></span>
-            <span class="arabic">كَفَرَ<span class="tooltip">maka dia kafir</span></span>
-            <span class="arabic">إِجْمَاعًا<span class="tooltip">secara ijma'</span></span>
-        </p>
-
-        <p>
-            <span class="arabic">الرَّابِعُ<span class="tooltip">keempat</span></span>
-            <span class="arabic">مَنْ<span class="tooltip">Barangsiapa</span></span>
-            <span class="arabic">اعْتَقَدَ<span class="tooltip">meyakini</span></span>
-            <span class="arabic">أَنَّ<span class="tooltip">bahwa</span></span>
-            <span class="arabic">غَيْرَ هَدْيِ النَّبِيِّ<span class="tooltip">selain petunjuk Nabi</span></span>
-            <span class="arabic">ﷺ<span class="tooltip">ﷺ</span></span>
-            <span class="arabic">أَكْمَلُ مِنْ هَدْيِهِ<span class="tooltip">lebih sempurna dari
-                    petunjuknya</span></span>
-            <span class="arabic">أَوْ<span class="tooltip">atau</span></span>
-            <span class="arabic">أَنَّ حُكْمَ غَيْرِهِ أَحْسَنُ مِنْ حُكْمِهِ<span class="tooltip">bahwa hukum selainnya
-                    lebih baik dari hukumnya</span></span>
-            <span class="arabic">- كَالَّذِينَ يُفَضِّلُونَ حُكْمَ الطَّوَاغِيتِ<span class="tooltip">seperti
-                    orang-orang yang lebih mengutamakan hukum thaghut</span></span>
-            <span class="arabic">عَلَى حُكْمِهِ - فَهُوَ كَافِرٌ<span class="tooltip">di atas hukumnya - maka dia
-                    kafir</span></span>
-        </p>
-
-        <p>
-            <span class="arabic">الخَامِسُ<span class="tooltip">kelima</span></span>
-            <span class="arabic">مَنْ<span class="tooltip">Barangsiapa</span></span>
-            <span class="arabic">أَبْغَضَ<span class="tooltip">membenci</span></span>
-            <span class="arabic">شَيْئًا مِمَّا جَاءَ بِهِ الرَّسُولُ<span class="tooltip">sesuatu yang dibawa oleh
-                    Rasul</span></span>
-            <span class="arabic">ﷺ<span class="tooltip">ﷺ</span></span>
-            <span class="arabic">وَلَوْ عَمِلَ بِهِ<span class="tooltip">walaupun dia mengamalkannya</span></span>
-            <span class="arabic">كَفَرَ إِجْمَاعًا<span class="tooltip">maka dia kafir secara ijma'</span></span>
-            <span class="arabic">وَالدَّلِيلُ<span class="tooltip">Dan dalilnya</span></span>
-            <span class="arabic">قَوْلُهُ<span class="tooltip">perkataan-Nya</span></span>
-            <span class="arabic">تَعَالَى<span class="tooltip">Yang Maha Tinggi</span></span>:
-            <span class="arabic">ذَٰلِكَ<span class="tooltip">Itu</span></span>
-            <span class="arabic">بِأَنَّهُمْ<span class="tooltip">karena mereka</span></span>
-            <span class="arabic">كَرِهُوا<span class="tooltip">membenci</span></span>
-            <span class="arabic">مَا<span class="tooltip">apa yang</span></span>
-            <span class="arabic">أَنزَلَ اللَّهُ<span class="tooltip">diturunkan oleh</span></span>
-            <span class="arabic"><span class="tooltip">Allah</span></span>
-        </p>
-
-        <p>
-            <span class="arabic">السَّادِسُ<span class="tooltip">keenam</span></span>
-            <span class="arabic">مَنْ<span class="tooltip">Barangsiapa</span></span>
-            <span class="arabic">اسْتَهْزَأَ<span class="tooltip">mengolok-olok</span></span>
-            <span class="arabic">بِشَيْءٍ مِنْ دِينِ اللهِ<span class="tooltip">sesuatu dari agama Allah</span></span>
-            <span class="arabic">أَوْ ثَوَابِهِ<span class="tooltip">atau pahalanya</span></span>
-            <span class="arabic">أَوْ عِقَابِهِ<span class="tooltip">atau hukumannya</span></span>
-            <span class="arabic">كَفَرَ<span class="tooltip">maka dia kafir</span></span>
-            <span class="arabic">وَالدَّلِيلُ<span class="tooltip">Dan dalilnya</span></span>
-            <span class="arabic">قَوْلُهُ<span class="tooltip">perkataan-Nya</span></span>
-            <span class="arabic">تَعَالَى<span class="tooltip">Yang Maha Tinggi</span></span>:
-            <span class="arabic">قُلْ<span class="tooltip">Katakanlah</span></span>
-            <span class="arabic">أَبِاللَّهِ<span class="tooltip">Apakah kepada Allah</span></span>
-            <span class="arabic">وَآيَاتُهُ<span class="tooltip">dan ayat-ayat-Nya</span></span>
-            <span class="arabic">وَرَسُولُهُ<span class="tooltip">dan Rasul-Nya</span></span>
-            <span class="arabic">كُنتُمْ<span class="tooltip">kalian</span></span>
-            <span class="arabic">تَسْتَهْزِئُونَ<span class="tooltip">mengolok-olok</span></span>
-            <span class="arabic">لَا<span class="tooltip">Jangan</span></span>
-            <span class="arabic">تَعْتَذِرُوا<span class="tooltip">kalian minta maaf</span></span>
-            <span class="arabic">قَدْ<span class="tooltip">sesungguhnya</span></span>
-            <span class="arabic">كَفَرْتُمْ<span class="tooltip">kalian telah kafir</span></span>
-            <span class="arabic">بَعْدَ إِيمَانِكُمْ<span class="tooltip">setelah kalian beriman</span></span>
-        </p>
-
-        <p>
-            <span class="arabic">السَّابِعُ<span class="tooltip">Ketujuh</span></span>
-            <span class="arabic">السِّحْرُ<span class="tooltip">Sihir</span></span>
-            <span class="arabic">ومنْهُ الصَّرْفُ وَالعَطْفُ<span class="tooltip">Dan termasuk di dalamnya: ṣarf dan
-                    ‘aṭf</span></span>
-            <span class="arabic">فَمَنْ فَعَلَهُ أَوْ رَضِيَ بِهِكَفَرَ<span class="tooltip">Barangsiapa yang
-                    melakukannya atau meridainya, maka dia kafir</span></span>
-            <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى<span class="tooltip">Dan dalilnya adalah firman Allah
-                    Ta‘ālā</span></span>
-            <span class="arabic">وَمَا<span class="tooltip">Dan tidaklah</span></span>
-            <span class="arabic">يُعَلِّمَانِ<span class="tooltip">kedua malaikat itu mengajarkan</span></span>
-            <span class="arabic">مِنْ<span class="tooltip">kepada</span></span>
-            <span class="arabic">أَحَدٍ<span class="tooltip">seseorang</span></span>
-            <span class="arabic">حَتَّى<span class="tooltip">sampai</span></span>
-            <span class="arabic">يَقُولَا<span class="tooltip">mereka berkata</span></span>
-            <span class="arabic">إِنَّمَا نَحْنُ<span class="tooltip">sesungguhnya kami hanya</span></span>
-            <span class="arabic">فِتْنَةٌ<span class="tooltip">sebuah ujian</span></span>
-            <span class="arabic">فَلَا<span class="tooltip">maka janganlah</span></span>
-            <span class="arabic">تَكْفُرْ<span class="tooltip">kamu kufur</span></span>
-        </p>
-
-        <p>
-            <span class="arabic">الثَّامِنُ<span class="tooltip">Kedelapan</span></span>
-            <span class="arabic">مُظَاهَرَةُ المُشْرِكِينَ<span class="tooltip">Menolong orang musyrik</span></span>
-            <span class="arabic">وَمُعَاوَنَتُهُمْ عَلَى المُسْلِمِينَ<span class="tooltip">Dan membantu mereka melawan
-                    kaum muslimin</span></span>
-            <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى<span class="tooltip">Dan dalilnya adalah firman Allah
-                    Ta‘ālā</span></span>
-            <span class="arabic">وَمَنْ<span class="tooltip">Dan barang siapa</span></span>
-            <span class="arabic">يَتَوَلَّهُمْ<span class="tooltip">menjadikan mereka sebagai pemimpin</span></span>
-            <span class="arabic">مِنْكُمْ<span class="tooltip">di antara kalian</span></span>
-            <span class="arabic">فَإِنَّهُ<span class="tooltip">maka sesungguhnya dia</span></span>
-            <span class="arabic">مِنْهُمْ<span class="tooltip">adalah bagian dari mereka</span></span>
-            <span class="arabic">إِنَّ<span class="tooltip">sesungguhnya</span></span>
-            <span class="arabic">اللَّهَ<span class="tooltip">Allah</span></span>
-            <span class="arabic">لَا<span class="tooltip">tidak</span></span>
-            <span class="arabic">يَهْدِي<span class="tooltip">memberi petunjuk</span></span>
-            <span class="arabic">القَوْمَ<span class="tooltip">kepada kaum</span></span>
-            <span class="arabic">الظَّالِمِينَ<span class="tooltip">yang zalim</span></span>
-        </p>
-
-        <p>
-            <span class="arabic">التَّاسِعُ<span class="tooltip">Kesembilan</span></span>
-            <span class="arabic">مَنْ اِعْتَقَدَ<span class="tooltip">Barangsiapa yang meyakini</span></span>
-            <span class="arabic">أَنَّ بَعْضَ النَّاسِ لَا يَجِبُ عَلَيْهِ اِتِّبَاعُ النَّبِيِّ ﷺ<span
-                    class="tooltip">Bahwa ada sebagian manusia yang tidak wajib mengikuti Nabi ﷺ</span></span>
-            <span class="arabic">وَأَنَّهُ يَسَعُهُ الخُرُوجُ عَنْ شَرِيعَتِهِ ﷺ<span class="tooltip">Dan bahwa ia boleh
-                    keluar dari syariat beliau ﷺ</span></span>
-            <span class="arabic">كَمَا وَسِعَ الخَضِرُ الخُرُوجَ عَنْ شَرِيعَةِ مُوسَى عَلَيْهِ السَّلاَمُ<span
-                    class="tooltip">Sebagaimana Al-Khaḍir keluar dari syariat Mūsā ﷺ</span></span>
-            <span class="arabic">فَهُوَ كَافِرٌ<span class="tooltip">Maka dia kafir</span></span>
-        </p>
-
-        <p>
-            <span class="arabic">العَاشِرُ<span class="tooltip">Kesepuluh</span></span>
-            <span class="arabic">الإِعْرَاضُ<span class="tooltip">Berpaling</span></span>
-            <span class="arabic">عَنْ دِينِ اللَّهِ<span class="tooltip">Dari agama Allah</span></span>
-            <span class="arabic">لَا يَتَعَلَّمُهُ وَلَا يَعْمَلُ بِهِ<span class="tooltip">Tidak mau mempelajarinya dan
-                    tidak mengamalkannya</span></span>
-            <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى<span class="tooltip">Dan dalilnya adalah firman Allah
-                    Ta‘ālā</span></span>
-            <span class="arabic">وَمَنْ<span class="tooltip">Dan siapakah</span></span>
-            <span class="arabic">أَظْلَمُ<span class="tooltip">yang lebih zalim</span></span>
-            <span class="arabic">مِمَّنْ<span class="tooltip">daripada orang yang</span></span>
-            <span class="arabic">ذُكِّرَ<span class="tooltip">diperingatkan</span></span>
-            <span class="arabic">بِآيَاتِ<span class="tooltip">dengan ayat-ayat</span></span>
-            <span class="arabic">رَبِّهِ<span class="tooltip">Tuhannya</span></span>
-            <span class="arabic">ثُمَّ<span class="tooltip">kemudian</span></span>
-            <span class="arabic">أَعْرَضَ<span class="tooltip">ia berpaling</span></span>
-            <span class="arabic">عَنْهَا<span class="tooltip">darinya</span></span>
-            <span class="arabic">إِنَّا مِنَ المُجْرِمِينَ مُنتَقِمُونَ<span class="tooltip">Sesungguhnya Kami akan
-                    memberikan pembalasan kepada orang-orang yang berdosa</span></span>
-        </p>
-
-        <p>
-            <span class="arabic">وَلَا فَرْقَ<span class="tooltip">Dan tidak ada perbedaan</span></span>
-            <span class="arabic">فِي<span class="tooltip">dalam</span></span>
-            <span class="arabic">جَمِيعِ<span class="tooltip">semua</span></span>
-            <span class="arabic">هَذِهِ النَّوَاقِضِ<span class="tooltip">pembatal ini</span></span>
-            <span class="arabic">بَيْنَ<span class="tooltip">antara</span></span>
-            <span class="arabic">الهَازِلِ<span class="tooltip">orang yang bercanda</span></span>
-            <span class="arabic">وَالجَادِّ<sup class="tooltip">dan yang serius</sup></span>
-            <span class="arabic">وَالخَائِفِ<span class="tooltip">dan yang takut</span></span>
-            <span class="arabic">إِلَّا<span class="tooltip">kecuali</span></span>
-            <span class="arabic">المُكْرَهُ<span class="tooltip">orang yang dipaksa</span></span>
-        <p>
-            <span class="arabic">وَكُلُّهَا<span class="tooltip">Dan semuanya</span></span>
-            <span class="arabic">مِنْ<span class="tooltip">termasuk di antara</span></span>
-            <span class="arabic">أَعْظَمِ مَا يَكُونُ خَطَرًا<span class="tooltip">perkara yang paling
-                    berbahaya</span></span>
-            <span class="arabic">وَمِنْ أَكْثَرِ مَا يَكُونُ وُقُوعًا<span class="tooltip">dan termasuk di antara yang
-                    paling sering terjadi</span></span>
+            <span class="arabic">الثَّالِثُ
+                <span class="tooltip tooltip-id">ketiga</span>
+                <span class="tooltip tooltip-jp" hidden>3番目</span>
+            </span>
+            <span class="arabic">مَنْ
+                <span class="tooltip tooltip-id">Barangsiapa</span>
+                <span class="tooltip tooltip-jp" hidden>誰でも</span>
+            </span>
+            <span class="arabic">لَمْ يُكَفِّرِ
+                <span class="tooltip tooltip-id">yang tidak mengkafirkan</span>
+                <span class="tooltip tooltip-jp" hidden>を不信心であることを承認しない</span>
+            </span>
+            <span class="arabic">المُشْرِكِينَ
+                <span class="tooltip tooltip-id">orang musyrik</span>
+                <span class="tooltip tooltip-jp" hidden>不信心者</span>
+            </span>
+            <span class="arabic">أَوْ شَكَّ فِي كُفْرِهِمْ
+                <span class="tooltip tooltip-id">atau ragu terhadap kekafiran mereka</span>
+                <span class="tooltip tooltip-jp" hidden>それとも彼らの不信心のことを躊躇し</span>
+            </span>
+            <span class="arabic">أَوْ صَحَّحَ مَذْهَبَهُمْ
+                <span class="tooltip tooltip-id">atau membenarkan keyakinan mereka</span>
+                <span class="tooltip tooltip-jp" hidden>それとも彼らの信念を正当化し</span>
+            </span>
+            <span class="arabic">كَفَرَ
+                <span class="tooltip tooltip-id">maka dia kafir</span>
+                <span class="tooltip tooltip-jp" hidden>それで彼は不信心者</span>
+            </span>
+            <span class="arabic">إِجْمَاعًا
+                <span class="tooltip tooltip-id">secara ijma'</span>
+                <span class="tooltip tooltip-jp" hidden>総意により</span>
+            </span>
         </p>
 
         <p>
-            <span class="arabic">فَيَنْبَغِي<span class="tooltip">Maka seharusnya</span></span>
-            <span class="arabic">لِلمُسْلِمِ<span class="tooltip">seorang muslim</span></span>
-            <span class="arabic">أَنْ يَحْذَرَهَا<span class="tooltip">berhati-hati terhadapnya</span></span>
-            <span class="arabic">وَيَخَافَ<span class="tooltip">dan takut</span></span>
-            <span class="arabic">مِنْهَا<span class="tooltip">akan hal itu</span></span>
-            <span class="arabic">عَلَى<span class="tooltip">menimpa</span></span>
-            <span class="arabic">نَفْسِهِ<span class="tooltip">dirinya</span></span>
-            <span class="arabic">نَعُوذُ<span class="tooltip">Kami berlindung</span></span>
-            <span class="arabic">بِاللَّهِ<span class="tooltip">kepada Allah</span></span>
-            <span class="arabic">مِنْ<span class="tooltip">dari</span></span>
-            <span class="arabic">مُوجِبَاتِ<span class="tooltip">segala hal yang mendatangkan</span></span>
-            <span class="arabic">غَضَبِهِ<span class="tooltip">murka-Nya</span></span>
-            <span class="arabic">وَأَلِيمِ<span class="tooltip">dan azab-Nya yang</span></span>
-            <span class="arabic">عِقَابِهِ<span class="tooltip">pedih</span></span>
+            <span class="arabic">الرَّابِعُ
+                <span class="tooltip tooltip-id">keempat</span>
+                <span class="tooltip tooltip-jp" hidden>4番目</span>
+            </span>
+            <span class="arabic">مَنْ
+                <span class="tooltip tooltip-id">Barangsiapa</span>
+                <span class="tooltip tooltip-jp" hidden>誰でも</span>
+            </span>
+            <span class="arabic">اعْتَقَدَ
+                <span class="tooltip tooltip-id">meyakini</span>
+                <span class="tooltip tooltip-jp" hidden>信じる</span>
+            </span>
+            <span class="arabic">أَنَّ
+                <span class="tooltip tooltip-id">bahwa</span>
+                <span class="tooltip tooltip-jp" hidden>それ</span>
+            </span>
+            <span class="arabic">غَيْرَ هَدْيِ النَّبِيِّ
+                <span class="tooltip tooltip-id">selain petunjuk Nabi</span>
+                <span class="tooltip tooltip-jp" hidden>預言者の導き以外</span>
+            </span>
+            <span class="arabic">ﷺ
+                <span class="tooltip tooltip-id">ﷺ</span>
+                <span class="tooltip tooltip-jp" hidden>ﷺ</span>
+            </span>
+            <span class="arabic">أَكْمَلُ مِنْ هَدْيِهِ
+                <span class="tooltip tooltip-id">lebih sempurna dari petunjuknya</span>
+                <span class="tooltip tooltip-jp" hidden>彼の導きより完璧であり</span>
+            </span>
+            <span class="arabic">أَوْ
+                <span class="tooltip tooltip-id">atau</span>
+                <span class="tooltip tooltip-jp" hidden>それとも</span>
+            </span>
+            <span class="arabic">أَنَّ حُكْمَ غَيْرِهِ أَحْسَنُ مِنْ حُكْمِهِ
+                <span class="tooltip tooltip-id">bahwa hukum selainnya lebih baik dari hukumnya</span>
+                <span class="tooltip tooltip-jp" hidden>他の法が彼の法より良い</span>
+            </span>
+            <span class="arabic">- كَالَّذِينَ يُفَضِّلُونَ حُكْمَ الطَّوَاغِيتِ
+                <span class="tooltip tooltip-id">seperti orang-orang yang lebih mengutamakan hukum thaghut</span>
+                <span class="tooltip tooltip-jp" hidden>トーグートの法を優先する者たちみたいに</span>
+            </span>
+            <span class="arabic">عَلَى حُكْمِهِ - فَهُوَ كَافِرٌ
+                <span class="tooltip tooltip-id">di atas hukumnya - maka dia kafir</span>
+                <span class="tooltip tooltip-jp" hidden>彼の法より - 彼は不信心者</span>
+            </span>
         </p>
 
         <p>
-            <span class="arabic">وَصَلَّى اللَّهُ عَلَى نَبِيِّنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ<span
-                    class="tooltip">Semoga Allah mencurahkan shalawat kepada Nabi kita Muhammad, kepada keluarganya,
-                    serta para sahabatnya</span></span>
+            <span class="arabic">الخَامِسُ
+                <span class="tooltip tooltip-id">kelima</span>
+                <span class="tooltip tooltip-jp" hidden>5番目</span>
+            </span>
+            <span class="arabic">مَنْ
+                <span class="tooltip tooltip-id">Barangsiapa</span>
+                <span class="tooltip tooltip-jp" hidden>誰でも</span>
+            </span>
+            <span class="arabic">أَبْغَضَ
+                <span class="tooltip tooltip-id">membenci</span>
+                <span class="tooltip tooltip-jp" hidden>嫌い</span>
+            </span>
+            <span class="arabic">شَيْئًا مِمَّا جَاءَ بِهِ الرَّسُولُ
+                <span class="tooltip tooltip-id">sesuatu yang dibawa oleh Rasul</span>
+                <span class="tooltip tooltip-jp" hidden>使者が齎したもの</span>
+            </span>
+            <span class="arabic">ﷺ
+                <span class="tooltip tooltip-id">ﷺ</span>
+                <span class="tooltip tooltip-jp" hidden>ﷺ</span>
+            </span>
+            <span class="arabic">وَلَوْ عَمِلَ بِهِ
+                <span class="tooltip tooltip-id">walaupun dia mengamalkannya</span>
+                <span class="tooltip tooltip-jp" hidden>彼がそれを実践していても</span>
+            </span>
+            <span class="arabic">كَفَرَ إِجْمَاعًا
+                <span class="tooltip tooltip-id">maka dia kafir secara ijma'</span>
+                <span class="tooltip tooltip-jp" hidden>それで彼は総意により不信心者である</span>
+            </span>
+            <span class="arabic">وَالدَّلِيلُ
+                <span class="tooltip tooltip-id">Dan dalilnya</span>
+                <span class="tooltip tooltip-jp" hidden>そして証拠は</span>
+            </span>
+            <span class="arabic">قَوْلُهُ
+                <span class="tooltip tooltip-id">perkataan-Nya</span>
+                <span class="tooltip tooltip-jp" hidden>彼（神）のお告げ</span>
+            </span>
+            <span class="arabic">تَعَالَى
+                <span class="tooltip tooltip-id">Yang Maha Tinggi</span>
+                <span class="tooltip tooltip-jp" hidden>至高なる御方</span>
+            </span>:
+            <span class="arabic">ذَٰلِكَ
+                <span class="tooltip tooltip-id">Itu</span>
+                <span class="tooltip tooltip-jp" hidden>それは</span>
+            </span>
+            <span class="arabic">بِأَنَّهُمْ
+                <span class="tooltip tooltip-id">karena mereka</span>
+                <span class="tooltip tooltip-jp" hidden>なぜなら彼らは</span>
+            </span>
+            <span class="arabic">كَرِهُوا
+                <span class="tooltip tooltip-id">membenci</span>
+                <span class="tooltip tooltip-jp" hidden>を嫌う</span>
+            </span>
+            <span class="arabic">مَا
+                <span class="tooltip tooltip-id">apa yang</span>
+                <span class="tooltip tooltip-jp" hidden>何か</span>
+            </span>
+            <span class="arabic">أَنزَلَ 
+                <span class="tooltip tooltip-id">diturunkan oleh</span>
+                <span class="tooltip tooltip-jp" hidden>が送った</span>
+            </span>
+            <span class="arabic">اللَّهُ
+                <span class="tooltip tooltip-id">Allah</span>
+                <span class="tooltip tooltip-jp" hidden>アッラー</span>
+            </span>
         </p>
 
         <p>
-            <span class="arabic">تَمَّ بِحَمْدِ اللَّهِ<span class="tooltip">Selesai, dan segala puji bagi
-                    Allah</span></span>
+            <span class="arabic">السَّادِسُ
+                <span class="tooltip tooltip-id">keenam</span>
+                <span class="tooltip tooltip-jp" hidden>6番目</span>
+            </span>
+            <span class="arabic">مَنْ
+                <span class="tooltip tooltip-id">Barangsiapa</span>
+                <span class="tooltip tooltip-jp" hidden>誰でも</span>
+            </span>
+            <span class="arabic">اسْتَهْزَأَ
+                <span class="tooltip tooltip-id">mengolok-olok</span>
+                <span class="tooltip tooltip-jp" hidden>を巫山戯る（ふざける）</span>
+            </span>
+            <span class="arabic">بِشَيْءٍ مِنْ دِينِ اللهِ
+                <span class="tooltip tooltip-id">sesuatu dari agama Allah</span>
+                <span class="tooltip tooltip-jp" hidden>アッラーの宗教から来たもの</span>
+            </span>
+            <span class="arabic">أَوْ ثَوَابِهِ
+                <span class="tooltip tooltip-id">atau pahalanya</span>
+                <span class="tooltip tooltip-jp" hidden>それとも褒美を</span>
+            </span>
+            <span class="arabic">أَوْ عِقَابِهِ
+                <span class="tooltip tooltip-id">atau hukumannya</span>
+                <span class="tooltip tooltip-jp" hidden>それとも罰を</span>
+            </span>
+            <span class="arabic">كَفَرَ
+                <span class="tooltip tooltip-id">maka dia kafir</span>
+                <span class="tooltip tooltip-jp" hidden>それで彼は不信心者</span>
+            </span>
+            <span class="arabic">وَالدَّلِيلُ
+                <span class="tooltip tooltip-id">Dan dalilnya</span>
+                <span class="tooltip tooltip-jp" hidden>そして証拠は</span>
+            </span>
+            <span class="arabic">قَوْلُهُ
+                <span class="tooltip tooltip-id">perkataan-Nya</span>
+                <span class="tooltip tooltip-jp" hidden>彼（神）のお告げ</span>
+            </span>
+            <span class="arabic">تَعَالَى
+                <span class="tooltip tooltip-id">Yang Maha Tinggi</span>
+                <span class="tooltip tooltip-jp" hidden>至高なる御方</span>
+            </span>:
+            <span class="arabic">قُلْ
+                <span class="tooltip tooltip-id">Katakanlah</span>
+                <span class="tooltip tooltip-jp" hidden>言え</span>
+            </span>
+            <span class="arabic">أَبِاللَّهِ
+                <span class="tooltip tooltip-id">Apakah kepada Allah</span>
+                <span class="tooltip tooltip-jp" hidden>アッラーに対してか</span>
+            </span>
+            <span class="arabic">وَآيَاتُهُ
+                <span class="tooltip tooltip-id">dan ayat-ayat-Nya</span>
+                <span class="tooltip tooltip-jp" hidden>彼のアーヤーと</span>
+            </span>
+            <span class="arabic">وَرَسُولُهُ
+                <span class="tooltip tooltip-id">dan Rasul-Nya</span>
+                <span class="tooltip tooltip-jp" hidden>彼の使者と</span>
+            </span>
+            <span class="arabic">كُنتُمْ
+                <span class="tooltip tooltip-id">kalian</span>
+                <span class="tooltip tooltip-jp" hidden>お前らは</span>
+            </span>
+            <span class="arabic">تَسْتَهْزِئُونَ
+                <span class="tooltip tooltip-id">mengolok-olok</span>
+                <span class="tooltip tooltip-jp" hidden>巫山戯る（ふざける）</span>
+            </span>
+            <span class="arabic">لَا
+                <span class="tooltip tooltip-id">Jangan</span>
+                <span class="tooltip tooltip-jp" hidden>するな</span>
+            </span>
+            <span class="arabic">تَعْتَذِرُوا
+                <span class="tooltip tooltip-id">kalian minta maaf</span>
+                <span class="tooltip tooltip-jp" hidden>謝る</span>
+            </span>
+            <span class="arabic">قَدْ
+                <span class="tooltip tooltip-id">sesungguhnya</span>
+                <span class="tooltip tooltip-jp" hidden>本当に</span>
+            </span>
+            <span class="arabic">كَفَرْتُمْ
+                <span class="tooltip tooltip-id">kalian telah kafir</span>
+                <span class="tooltip tooltip-jp" hidden>お前らは不信心となった</span>
+            </span>
+            <span class="arabic">بَعْدَ إِيمَانِكُمْ
+                <span class="tooltip tooltip-id">setelah kalian beriman</span>
+                <span class="tooltip tooltip-jp" hidden>信心となった後</span>
+            </span>
+        </p>
+
+        <p>
+            <span class="arabic">السَّابِعُ
+                <span class="tooltip tooltip-id">Ketujuh</span>
+                <span class="tooltip tooltip-jp" hidden>7番目</span>
+            </span>
+            <span class="arabic">السِّحْرُ
+                <span class="tooltip tooltip-id">Sihir</span>
+                <span class="tooltip tooltip-jp" hidden>魔法</span>
+            </span>
+            <span class="arabic">ومنْهُ الصَّرْفُ وَالعَطْفُ
+                <span class="tooltip tooltip-id">Dan termasuk di dalamnya: ṣarf dan ‘aṭf</span>
+                <span class="tooltip tooltip-jp" hidden>そしてそれに含まれる：ソルフとアトフ</span>
+            </span>
+            <span class="arabic">فَمَنْ فَعَلَهُ أَوْ رَضِيَ بِهِكَفَرَ
+                <span class="tooltip tooltip-id">Barangsiapa yang melakukannya atau meridainya, maka dia kafir</span>
+                <span class="tooltip tooltip-jp" hidden>それをしそれとも承認した者は、不信心者となった</span>
+            </span>
+            <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى
+                <span class="tooltip tooltip-id">Dan dalilnya adalah firman Allah Ta‘ālā</span>
+                <span class="tooltip tooltip-jp" hidden>証拠は至高なるアッラーのお告げ</span>
+            </span>
+            <span class="arabic">وَمَا
+                <span class="tooltip tooltip-id">Dan tidaklah</span>
+                <span class="tooltip tooltip-jp" hidden>そして否</span>
+            </span>
+            <span class="arabic">يُعَلِّمَانِ
+                <span class="tooltip tooltip-id">kedua malaikat itu mengajarkan</span>
+                <span class="tooltip tooltip-jp" hidden>二人の天使は教える</span>
+            </span>
+            <span class="arabic">مِنْ
+                <span class="tooltip tooltip-id">kepada</span>
+                <span class="tooltip tooltip-jp" hidden>に</span>
+            </span>
+            <span class="arabic">أَحَدٍ
+                <span class="tooltip tooltip-id">seseorang</span>
+                <span class="tooltip tooltip-jp" hidden>誰か</span>
+            </span>
+            <span class="arabic">حَتَّى
+                <span class="tooltip tooltip-id">sampai</span>
+                <span class="tooltip tooltip-jp" hidden>まで</span>
+            </span>
+            <span class="arabic">يَقُولَا
+                <span class="tooltip tooltip-id">mereka berkata</span>
+                <span class="tooltip tooltip-jp" hidden>彼らは言う</span>
+            </span>
+            <span class="arabic">إِنَّمَا نَحْنُ
+                <span class="tooltip tooltip-id">sesungguhnya kami hanya</span>
+                <span class="tooltip tooltip-jp" hidden>本当は我々は</span>
+            </span>
+            <span class="arabic">فِتْنَةٌ
+                <span class="tooltip tooltip-id">sebuah ujian</span>
+                <span class="tooltip tooltip-jp" hidden>試練でさる</span>
+            </span>
+            <span class="arabic">فَلَا
+                <span class="tooltip tooltip-id">maka janganlah</span>
+                <span class="tooltip tooltip-jp" hidden>それでしないで</span>
+            </span>
+            <span class="arabic">تَكْفُرْ
+                <span class="tooltip tooltip-id">kamu kufur</span>
+                <span class="tooltip tooltip-jp" hidden>お前不貞</span>
+            </span>
+        </p>
+
+        <p>
+            <span class="arabic">الثَّامِنُ
+                <span class="tooltip tooltip-id">Kedelapan</span>
+                <span class="tooltip tooltip-jp" hidden>8番目</span>
+            </span>
+            <span class="arabic">مُظَاهَرَةُ المُشْرِكِينَ
+                <span class="tooltip tooltip-id">Menolong orang musyrik</span>
+                <span class="tooltip tooltip-jp" hidden>不信心者を助ける</span>
+            </span>
+            <span class="arabic">وَمُعَاوَنَتُهُمْ عَلَى المُسْلِمِينَ
+                <span class="tooltip tooltip-id">Dan membantu mereka melawan kaum muslimin</span>
+                <span class="tooltip tooltip-jp" hidden>そしてムスリムと戦うのを手伝う</span>
+            </span>
+            <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى
+                <span class="tooltip tooltip-id">Dan dalilnya adalah firman Allah Ta‘ālā</span>
+                <span class="tooltip tooltip-jp" hidden>証拠は至高なるアッラーのお告げ</span>
+            </span>
+            <span class="arabic">وَمَنْ
+                <span class="tooltip tooltip-id">Dan barang siapa</span>
+                <span class="tooltip tooltip-jp" hidden>そして誰でも</span>
+            </span>
+            <span class="arabic">يَتَوَلَّهُمْ
+                <span class="tooltip tooltip-id">menjadikan mereka sebagai pemimpin</span>
+                <span class="tooltip tooltip-jp" hidden>彼らをリーダーにする</span>
+            </span>
+            <span class="arabic">مِنْكُمْ
+                <span class="tooltip tooltip-id">di antara kalian</span>
+                <span class="tooltip tooltip-jp" hidden>お前らの間に</span>
+            </span>
+            <span class="arabic">فَإِنَّهُ
+                <span class="tooltip tooltip-id">maka sesungguhnya dia</span>
+                <span class="tooltip tooltip-jp" hidden>それで本当に彼は</span>
+            </span>
+            <span class="arabic">مِنْهُمْ
+                <span class="tooltip tooltip-id">adalah bagian dari mereka</span>
+                <span class="tooltip tooltip-jp" hidden>彼らの一部である</span>
+            </span>
+            <span class="arabic">إِنَّ
+                <span class="tooltip tooltip-id">sesungguhnya</span>
+                <span class="tooltip tooltip-jp" hidden>本当に</span>
+            </span>
+            <span class="arabic">اللَّهَ
+                <span class="tooltip tooltip-id">Allah</span>
+                <span class="tooltip tooltip-jp" hidden>アッラー</span>
+            </span>
+            <span class="arabic">لَا
+                <span class="tooltip tooltip-id">tidak</span>
+                <span class="tooltip tooltip-jp" hidden>しない</span>
+            </span>
+            <span class="arabic">يَهْدِي
+                <span class="tooltip tooltip-id">memberi petunjuk</span>
+                <span class="tooltip tooltip-jp" hidden>導きを与える</span>
+            </span>
+            <span class="arabic">القَوْمَ
+                <span class="tooltip tooltip-id">kepada kaum</span>
+                <span class="tooltip tooltip-jp" hidden>者らに</span>
+            </span>
+            <span class="arabic">الظَّالِمِينَ
+                <span class="tooltip tooltip-id">yang zalim</span>
+                <span class="tooltip tooltip-jp" hidden>残酷な</span>
+            </span>
+        </p>
+
+        <p>
+            <span class="arabic">التَّاسِعُ
+                <span class="tooltip tooltip-id">Kesembilan</span>
+                <span class="tooltip tooltip-jp" hidden>9番目</span>
+            </span>
+            <span class="arabic">مَنْ اِعْتَقَدَ
+                <span class="tooltip tooltip-id">Barangsiapa yang meyakini</span>
+                <span class="tooltip tooltip-jp" hidden>を信じ誰でも</span>
+            </span>
+            <span class="arabic">أَنَّ بَعْضَ النَّاسِ لَا يَجِبُ عَلَيْهِ اِتِّبَاعُ النَّبِيِّ ﷺ
+                <span class="tooltip tooltip-id">Bahwa ada sebagian manusia yang tidak wajib mengikuti Nabi ﷺ</span>
+                <span class="tooltip tooltip-jp">一部の人間が預言者 ﷺ の教えを従わなくて良いこと</span>
+            </span>
+            <span class="arabic">وَأَنَّهُ يَسَعُهُ الخُرُوجُ عَنْ شَرِيعَتِهِ ﷺ
+                <span class="tooltip tooltip-id">Dan bahwa ia boleh keluar dari syariat beliau ﷺ</span>
+                <span class="tooltip tooltip-jp" hidden>そしてその者が彼 ﷺ の教えから出て良いこと</span>
+            </span>
+            <span class="arabic">كَمَا وَسِعَ الخَضِرُ الخُرُوجَ عَنْ شَرِيعَةِ مُوسَى عَلَيْهِ السَّلاَمُ
+                <span class="tooltip tooltip-id">Sebagaimana Al-Khaḍir keluar dari syariat Mūsā ﷺ</span>
+                <span class="tooltip tooltip-jp" hidden>キディルがムーサ ﷺ の教えから出るように</span>
+            </span>
+            <span class="arabic">فَهُوَ كَافِرٌ
+                <span class="tooltip tooltip-id">Maka dia kafir</span>
+                <span class="tooltip tooltip-jp" hidden>彼は不信心者となった</span>
+            </span>
+        </p>
+
+        <p>
+            <span class="arabic">العَاشِرُ
+                <span class="tooltip tooltip-id">Kesepuluh</span>
+                <span class="tooltip tooltip-jp" hidden>10番目</span>
+            </span>
+            <span class="arabic">الإِعْرَاضُ
+                <span class="tooltip tooltip-id">Berpaling</span>
+                <span class="tooltip tooltip-jp" hidden>背ける</span>
+            </span>
+            <span class="arabic">عَنْ دِينِ اللَّهِ
+                <span class="tooltip tooltip-id">Dari agama Allah</span>
+                <span class="tooltip tooltip-jp" hidden>アッラーの宗教から</span>
+            </span>
+            <span class="arabic">لَا يَتَعَلَّمُهُ وَلَا يَعْمَلُ بِهِ
+                <span class="tooltip tooltip-id">Tidak mau mempelajarinya dan tidak mengamalkannya</span>
+                <span class="tooltip tooltip-jp" hidden>学んだり実践したりしたくない</span>
+            </span>
+            <span class="arabic">وَالدَّلِيلُ قَوْلُهُ تَعَالَى
+                <span class="tooltip tooltip-id">Dan dalilnya adalah firman Allah Ta‘ālā</span>
+                <span class="tooltip tooltip-jp" hidden>証拠は至高なるアッラーのお告げ</span>
+            </span>
+            <span class="arabic">وَمَنْ
+                <span class="tooltip tooltip-id">Dan siapakah</span>
+                <span class="tooltip tooltip-jp" hidden>そして誰が</span>
+            </span>
+            <span class="arabic">أَظْلَمُ
+                <span class="tooltip tooltip-id">yang lebih zalim</span>
+                <span class="tooltip tooltip-jp" hidden>より残酷な者</span>
+            </span>
+            <span class="arabic">مِمَّنْ
+                <span class="tooltip tooltip-id">daripada orang yang</span>
+                <span class="tooltip tooltip-jp" hidden>の者より</span>
+            </span>
+            <span class="arabic">ذُكِّرَ
+                <span class="tooltip tooltip-id">diperingatkan</span>
+                <span class="tooltip tooltip-jp" hidden>警告された</span>
+            </span>
+            <span class="arabic">بِآيَاتِ
+                <span class="tooltip tooltip-id">dengan ayat-ayat</span>
+                <span class="tooltip tooltip-jp" hidden>アーヤーで</span>
+            </span>
+            <span class="arabic">رَبِّهِ
+                <span class="tooltip tooltip-id">Tuhannya</span>
+                <span class="tooltip tooltip-jp" hidden>自分の神の</span>
+            </span>
+            <span class="arabic">ثُمَّ
+                <span class="tooltip tooltip-id">kemudian</span>
+                <span class="tooltip tooltip-jp" hidden>それから</span>
+            </span>
+            <span class="arabic">أَعْرَضَ
+                <span class="tooltip tooltip-id">ia berpaling</span>
+                <span class="tooltip tooltip-jp" hidden>彼は背け</span>
+            </span>
+            <span class="arabic">عَنْهَا
+                <span class="tooltip tooltip-id">darinya</span>
+                <span class="tooltip tooltip-jp" hidden>彼から</span>
+            </span>
+            <span class="arabic">إِنَّا مِنَ المُجْرِمِينَ مُنتَقِمُونَ
+                <span class="tooltip tooltip-id">Sesungguhnya Kami akan memberikan pembalasan kepada orang-orang yang berdosa</span>
+                <span class="tooltip tooltip-jp" hidden>本当に我々は罪を犯した者に報いを与えるだろう</span>
+            </span>
+        </p>
+
+        <p>
+            <span class="arabic">وَلَا فَرْقَ
+                <span class="tooltip tooltip-id">Dan tidak ada perbedaan</span>
+                <span class="tooltip tooltip-jp" hidden>そして違いがない</span>
+            </span>
+            <span class="arabic">فِي
+                <span class="tooltip tooltip-id">dalam</span>
+                <span class="tooltip tooltip-jp" hidden>に</span>
+            </span>
+            <span class="arabic">جَمِيعِ
+                <span class="tooltip tooltip-id">semua</span>
+                <span class="tooltip tooltip-jp" hidden>全部</span>
+            </span>
+            <span class="arabic">هَذِهِ النَّوَاقِضِ
+                <span class="tooltip tooltip-id">pembatal ini</span>
+                <span class="tooltip tooltip-jp" hidden>この無効化</span>
+            </span>
+            <span class="arabic">بَيْنَ
+                <span class="tooltip tooltip-id">antara</span>
+                <span class="tooltip tooltip-jp" hidden>の間に</span>
+            </span>
+            <span class="arabic">الهَازِلِ
+                <span class="tooltip tooltip-id">orang yang bercanda</span>
+                <span class="tooltip tooltip-jp" hidden>巫山戯る者</span>
+            </span>
+            <span class="arabic">وَالجَادِّ
+                <sup class="tooltip tooltip-id">dan yang serius</sup>
+                <sup class="tooltip tooltip-jp" hidden>と真面目な者</sup>
+            </span>
+            <span class="arabic">وَالخَائِفِ
+                <span class="tooltip tooltip-id">dan yang takut</span>
+                <span class="tooltip tooltip-jp" hidden>と恐れるもの</span>
+            </span>
+            <span class="arabic">إِلَّا
+                <span class="tooltip tooltip-id">kecuali</span>
+                <span class="tooltip tooltip-jp" hidden>を除く</span>
+            </span>
+            <span class="arabic">المُكْرَهُ
+                <span class="tooltip tooltip-id">orang yang dipaksa</span>
+                <span class="tooltip tooltip-jp" hidden>強制させられた者</span>
+            </span>
+        <p>
+            <span class="arabic">وَكُلُّهَا
+                <span class="tooltip tooltip-id">Dan semuanya</span>
+                <span class="tooltip tooltip-jp" hidden>そして全部</span>
+            </span>
+            <span class="arabic">مِنْ
+                <span class="tooltip tooltip-id">termasuk di antara</span>
+                <span class="tooltip tooltip-jp" hidden>その中に含まれた</span>
+            </span>
+            <span class="arabic">أَعْظَمِ مَا يَكُونُ خَطَرًا
+                <span class="tooltip tooltip-id">perkara yang paling berbahaya</span>
+                <span class="tooltip tooltip-jp" hidden>最も危険なこと</span>
+            </span>
+            <span class="arabic">وَمِنْ أَكْثَرِ مَا يَكُونُ وُقُوعًا
+                <span class="tooltip tooltip-id">dan termasuk di antara yang paling sering terjadi</span>
+                <span class="tooltip tooltip-jp" hidden>そして最も多く起こったこと</span>
+            </span>
+        </p>
+
+        <p>
+            <span class="arabic">فَيَنْبَغِي
+                <span class="tooltip tooltip-id">Maka seharusnya</span>
+                <span class="tooltip tooltip-jp" hidden>であるべき</span>
+            </span>
+            <span class="arabic">لِلمُسْلِمِ
+                <span class="tooltip tooltip-id">seorang muslim</span>
+                <span class="tooltip tooltip-jp" hidden>ムスリムは</span>
+            </span>
+            <span class="arabic">أَنْ يَحْذَرَهَا
+                <span class="tooltip tooltip-id">berhati-hati terhadapnya</span>
+                <span class="tooltip tooltip-jp" hidden>そのことに警戒する</span>
+            </span>
+            <span class="arabic">وَيَخَافَ
+                <span class="tooltip tooltip-id">dan takut</span>
+                <span class="tooltip tooltip-jp" hidden>そして恐れ</span>
+            </span>
+            <span class="arabic">مِنْهَا
+                <span class="tooltip tooltip-id">akan hal itu</span>
+                <span class="tooltip tooltip-jp" hidden>それを</span>
+            </span>
+            <span class="arabic">عَلَى
+                <span class="tooltip tooltip-id">menimpa</span>
+                <span class="tooltip tooltip-jp" hidden>降り懸かる</span>
+            </span>
+            <span class="arabic">نَفْسِهِ
+                <span class="tooltip tooltip-id">dirinya</span>
+                <span class="tooltip tooltip-jp" hidden>自分に</span>
+            </span>
+            <span class="arabic">نَعُوذُ
+                <span class="tooltip tooltip-id">Kami berlindung</span>
+                <span class="tooltip tooltip-jp" hidden>我々は救いを求める</span>
+            </span>
+            <span class="arabic">بِاللَّهِ
+                <span class="tooltip tooltip-id">kepada Allah</span>
+                <span class="tooltip tooltip-jp" hidden>アッラーに</span>
+            </span>
+            <span class="arabic">مِنْ
+                <span class="tooltip tooltip-id">dari</span>
+                <span class="tooltip tooltip-jp" hidden>から</span>
+            </span>
+            <span class="arabic">مُوجِبَاتِ
+                <span class="tooltip tooltip-id">segala hal yang mendatangkan</span>
+                <span class="tooltip tooltip-jp" hidden>を齎す全て</span>
+            </span>
+            <span class="arabic">غَضَبِهِ
+                <span class="tooltip tooltip-id">murka-Nya</span>
+                <span class="tooltip tooltip-jp" hidden>彼（神）の怒り</span>
+            </span>
+            <span class="arabic">وَأَلِيمِ
+                <span class="tooltip tooltip-id">dan azab-Nya yang</span>
+                <span class="tooltip tooltip-jp" hidden>そして彼の罰</span>
+            </span>
+            <span class="arabic">عِقَابِهِ
+                <span class="tooltip tooltip-id">pedih</span>
+                <span class="tooltip tooltip-jp" hidden>辛いな</span>
+            </span>
+        </p>
+
+        <p>
+            <span class="arabic">وَصَلَّى اللَّهُ عَلَى نَبِيِّنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ
+                <span class="tooltip tooltip-id">Semoga Allah mencurahkan shalawat kepada Nabi kita Muhammad, kepada keluarganya, serta para sahabatnya</span>
+                <span class="tooltip tooltip-jp" hidden>アッラーが我らの預言者ムハンマドに祝福を与えるに、彼の家族に、そして彼の仲間に</span>
+            </span>
+        </p>
+
+        <p>
+            <span class="arabic">تَمَّ بِحَمْدِ اللَّهِ
+                <span class="tooltip tooltip-id">Selesai, dan segala puji bagi Allah</span>
+                <span class="tooltip tooltip-jp" hidden>終了、そしてアッラーにすべての賛美(さんび)あれ</span>
+            </span>
         </p>
     </div>
 
     <script>
         let harakatVisible = true;
+        let translationLanguage = 'id';
 
         function toggleHarakat() {
             const arabicText = document.querySelectorAll('.arabic');
@@ -574,6 +1148,29 @@
                 harakatVisible = !harakatVisible;
 
             }
+        });
+
+        function changeTranslationLanguage(lang) {
+            if(lang == translationLanguage){
+                return;
+            }
+            // Sembunyikan tooltip pada bahasa yang aktif
+            const inactiveTooltips = document.querySelectorAll(`.tooltip-${translationLanguage}`);
+            inactiveTooltips.forEach(span => {
+                span.hidden = 'true';
+            });
+            // Tampakkan tooltip pada bahasa yang akan diaktifkan
+            const activeTooltips = document.querySelectorAll(`.tooltip-${lang}`);
+            activeTooltips.forEach(span => {
+                span.removeAttribute('hidden')
+            });
+
+            translationLanguage = lang;            
+        }
+
+        document.getElementById("langSelection").addEventListener("change", function (event) {
+            const langValue = event.currentTarget.value;
+            changeTranslationLanguage(langValue);
         });
     </script>
 </body>
